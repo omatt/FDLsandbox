@@ -5,9 +5,11 @@ import android.content.Context;
 
 import com.omatt.fdlsandbox.components.AppComponent;
 import com.omatt.fdlsandbox.components.DaggerAppComponent;
+import com.omatt.fdlsandbox.components.FDLSandboxModule;
 
 /**
  * Created by omarmatthew on 6/24/17.
+ * Application Controller
  */
 
 public class AppController extends Application{
@@ -33,6 +35,6 @@ public class AppController extends Application{
         sInstance = this;
 
         // Initialize Dagger AppComponent
-        appComponent = DaggerAppComponent.builder().build();
+        appComponent = DaggerAppComponent.builder().fDLSandboxModule(new FDLSandboxModule(this)).build();
     }
 }

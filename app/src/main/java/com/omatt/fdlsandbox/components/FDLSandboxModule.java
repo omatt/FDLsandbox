@@ -12,7 +12,7 @@ import dagger.Provides;
  * Created by omarmatthew on 6/24/17.
  */
 @Module
-class FDLSandboxModule {
+public class FDLSandboxModule {
     private final AppController app;
     public FDLSandboxModule(AppController app) {
         this.app = app;

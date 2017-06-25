@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">FDL Sandbox</string>
 
+    <string name="btn_txt_invite">Send invitations!</string>
+
     <string name="invitation_title">Send App Invite Quickstart Invitation</string>
     <string name="invitation_message">This app is terrific, give it a try and get $5 off!</string>
     <string name="invitation_deep_link">https://www.google.com/?q=dog</string>
