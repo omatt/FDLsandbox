@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">FDL Sandbox</string>
+
+    <string name="invitation_title">Send App Invite Quickstart Invitation</string>
+    <string name="invitation_message">This app is terrific, give it a try and get $5 off!</string>
+    <string name="invitation_deep_link">https://www.google.com/?q=dog</string>
+    <string name="invitation_deep_link_2">https://n8gbq.app.goo.gl/?link=https://www.google.com/?q%3Dcat&amp;apn=com.google.firebase.quickstart.invites</string>
+    <string name="invitation_custom_image">https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png</string>
+    <string name="invitation_cta">Install!</string>
+
 </resources>
