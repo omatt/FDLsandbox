@@ -5,4 +5,10 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="activity_default_margin">16dp</dimen>
+
+    <!-- Text size dimens -->
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_medium">16sp</dimen>
+    <dimen name="text_size_large">20sp</dimen>
+    <dimen name="text_size_xlarge">24sp</dimen>
 </resources>

@@ -19,17 +19,18 @@ public class MainActivity extends AppCompatActivity {
     private final String TAG = "MainActivity";
     private final int REQUEST_INVITE = 0;
 
-    @Inject FirebaseDynamicLinks mFDL;
+    @Inject FirebaseDynamicLinks mDynamicLinks;
 
     @OnClick(R.id.btn_app_invite_send) void sendAppInvite(){
         Log.i(TAG, "Send App Invite Clicked!");
+        // Send AppInvite Intent Builder
         startActivityForResult(new AppInviteHelper().appInviteTemplate(this), REQUEST_INVITE);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.layout_activity_main);
         ButterKnife.bind(this);
         AppController.getComponent(this).inject(this);
     }

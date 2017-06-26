@@ -13,6 +13,7 @@ import com.omatt.fdlsandbox.R;
  */
 
 public class AppInviteHelper {
+    private final String TAG = "AppInviteHelper";
     /**
      * Returns Invite build template
      * @param context Context
