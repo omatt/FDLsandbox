@@ -1,4 +1,4 @@
-package com.omatt.fdlsandbox;
+package com.omatt.fdlsandbox.modules;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,8 @@ import android.util.Log;
 
 import com.google.android.gms.appinvite.AppInviteInvitation;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
+import com.omatt.fdlsandbox.BaseActivity;
+import com.omatt.fdlsandbox.R;
 import com.omatt.fdlsandbox.firebase.AppInviteHelper;
 import com.omatt.fdlsandbox.utils.AppController;
 
@@ -15,7 +17,7 @@ import javax.inject.Inject;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     private final String TAG = "MainActivity";
     private final int REQUEST_INVITE = 0;
 

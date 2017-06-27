@@ -7,19 +7,35 @@ package com.omatt.fdlsandbox.firebase.models;
  */
 
 public class FDL {
-    private String FDLDeepLink;
-    private String FDLInviteID;
+    private String fdlDeepLink;
+    private String fdlInviteID;
+
+    /**
+     * Initialized null val
+     */
+    public FDL() {
+        this.fdlDeepLink = null;
+        this.fdlInviteID = null;
+    }
 
     public FDL(String fdlDeepLink, String fdlInviteID) {
-        FDLDeepLink = fdlDeepLink;
-        FDLInviteID = fdlInviteID;
+        this.fdlDeepLink = fdlDeepLink;
+        this.fdlInviteID = fdlInviteID;
     }
 
     public String getFDLDeepLink() {
-        return FDLDeepLink;
+        return fdlDeepLink;
     }
 
     public void setFDLDeepLink(String FDLDeepLink) {
-        this.FDLDeepLink = FDLDeepLink;
+        this.fdlDeepLink = FDLDeepLink;
+    }
+
+    public String getFdlInviteID() {
+        return fdlInviteID;
+    }
+
+    public void setFdlInviteID(String fdlInviteID) {
+        this.fdlInviteID = fdlInviteID;
     }
 }
