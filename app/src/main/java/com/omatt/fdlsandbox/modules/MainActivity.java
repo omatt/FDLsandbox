@@ -1,5 +1,6 @@
 package com.omatt.fdlsandbox.modules;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,11 +31,18 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
+    public void processDeepLink(Context context, Intent intent) {
+        super.processDeepLink(context, intent);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_activity_main);
         ButterKnife.bind(this);
         AppController.getComponent(this).inject(this);
+
+        processDeepLink(this, getIntent());
     }
 
     @Override

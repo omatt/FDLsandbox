@@ -1,11 +1,13 @@
 package com.omatt.fdlsandbox;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -64,6 +66,39 @@ public class BaseActivity extends AppCompatActivity {
                 .addOnFailureListener(this, new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "getDynamicLink:onFailure", e);
+                    }
+                });
+    }
+
+    public void processDeepLink(final Context context, Intent intent){
+        FirebaseDynamicLinks.getInstance().getDynamicLink(intent)
+                .addOnSuccessListener(this, new OnSuccessListener<PendingDynamicLinkData>() {
+                    @Override
+                    public void onSuccess(PendingDynamicLinkData data) {
+                        if (data == null) {
+                            Log.d(TAG, "getInvitation: no data");
+                            return;
+                        }
+
+                        // Get the deep link
+                        Uri deepLink = data.getLink();
+                        Log.i(TAG, "Deep Link: " + deepLink);
+                        Toast.makeText(context, "Deep Link received: " + deepLink, Toast.LENGTH_SHORT).show();
+
+                        // Extract invite
+                        FirebaseAppInvite invite = FirebaseAppInvite.getInvitation(data);
+                        if (invite != null) {
+                            String invitationId = invite.getInvitationId();
+                            Log.i(TAG, "Invitation ID: " + invitationId);
+                            Toast.makeText(context, "Invitation ID: " + invitationId, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                })
+                .addOnFailureListener(this, new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(context, "Dynamic Link failure: " + e, Toast.LENGTH_SHORT).show();
                         Log.w(TAG, "getDynamicLink:onFailure", e);
                     }
                 });
