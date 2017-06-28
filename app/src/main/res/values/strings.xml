@@ -5,6 +5,7 @@
     <string name="deep_link">https://www.sample.com</string>
 
     <string name="btn_txt_invite">Send invitations!</string>
+    <string name="btn_txt_fdl_analytics_stats">Check Short FDL Stats</string>
     <string name="btn_txt_ok">Ok</string>
 
     <string name="invitation_title">Send App Invite Quickstart Invitation</string>

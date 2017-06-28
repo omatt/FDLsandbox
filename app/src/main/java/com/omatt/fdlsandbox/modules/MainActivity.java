@@ -30,6 +30,10 @@ public class MainActivity extends BaseActivity {
         startActivityForResult(new AppInviteHelper().appInviteTemplate(this), REQUEST_INVITE);
     }
 
+    @OnClick(R.id.btn_fdl_stats) void checkFdlStats(){
+
+    }
+
     @Override
     public void processDeepLink(Context context, Intent intent) {
         super.processDeepLink(context, intent);
