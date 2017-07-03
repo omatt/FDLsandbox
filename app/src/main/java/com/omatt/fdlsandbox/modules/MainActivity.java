@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.google.android.gms.appinvite.AppInviteInvitation;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
@@ -15,6 +16,7 @@ import com.omatt.fdlsandbox.utils.AppController;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -22,7 +24,10 @@ public class MainActivity extends BaseActivity {
     private final String TAG = "MainActivity";
     private final int REQUEST_INVITE = 0;
 
-    @Inject FirebaseDynamicLinks mDynamicLinks;
+    @BindView(R.id.textView_fdl_long) TextView textViewFDLLong;
+    @BindView(R.id.textView_fdl_short) TextView textViewFDLShort;
+
+    @Inject FirebaseDynamicLinks firebaseDynamicLinks;
 
     @OnClick(R.id.btn_app_invite_send) void sendAppInvite(){
         Log.i(TAG, "Send App Invite Clicked!");
@@ -30,13 +35,18 @@ public class MainActivity extends BaseActivity {
         startActivityForResult(new AppInviteHelper().appInviteTemplate(this), REQUEST_INVITE);
     }
 
-    @OnClick(R.id.btn_fdl_stats) void checkFdlStats(){
-
+    @OnClick(R.id.btn_gen_fdl) void generateFDL(){
+        dynamicLinkBuilder(textViewFDLLong, textViewFDLShort);
     }
 
     @Override
     public void processDeepLink(Context context, Intent intent) {
         super.processDeepLink(context, intent);
+    }
+
+    @Override
+    public void dynamicLinkBuilder(TextView textViewFDLLong, TextView textViewFDLShort) {
+        super.dynamicLinkBuilder(textViewFDLLong, textViewFDLShort);
     }
 
     @Override

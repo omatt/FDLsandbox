@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">FDL Sandbox</string>
 
-    <string name="dynamic_link_domain"></string>
+    <string name="dynamic_link_domain">kuta9.app.goo.gl/</string>
     <string name="deep_link">https://www.sample.com</string>
 
     <string name="btn_txt_invite">Send invitations!</string>
-    <string name="btn_txt_fdl_analytics_stats">Check Short FDL Stats</string>
+    <string name="btn_txt_gen_fdl">Generate FDL</string>
     <string name="btn_txt_ok">Ok</string>
 
     <string name="invitation_title">Send App Invite Quickstart Invitation</string>
@@ -17,5 +17,7 @@
     <string name="invitation_received">You received an Invitation!</string>
     <string name="txt_deep_link_default">Deep Link not set</string>
     <string name="txt_invite_id_default">Invitation ID not set</string>
+    <string name="txt_fdl_long">Long FDL will appear here</string>
+    <string name="txt_fdl_short">Short FDL will appear here</string>
 
 </resources>

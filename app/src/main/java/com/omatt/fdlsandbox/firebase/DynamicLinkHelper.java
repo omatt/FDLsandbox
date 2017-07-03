@@ -14,16 +14,11 @@ import com.omatt.fdlsandbox.R;
 
 public class DynamicLinkHelper {
     private final String TAG = "DynamicLinkHelper";
-    public DynamicLink dynamicLinkTemplate(Context context){
+    public DynamicLink.Builder dynamicLinkBuilder(Context context){
         return FirebaseDynamicLinks.getInstance().createDynamicLink()
                 .setLink(Uri.parse(context.getString(R.string.deep_link)))
-                .setDynamicLinkDomain("abc123.app.goo.gl")
+                .setDynamicLinkDomain(context.getString(R.string.dynamic_link_domain))
                 // Open links with this app on Android
-                .setAndroidParameters(new DynamicLink.AndroidParameters.Builder().build())
-                .buildDynamicLink();
-    }
-
-    public void dynamicLinkShortBuilder(){
-
+                .setAndroidParameters(new DynamicLink.AndroidParameters.Builder().build());
     }
 }
