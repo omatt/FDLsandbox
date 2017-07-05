@@ -8,6 +8,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.google.android.gms.appinvite.AppInviteInvitation;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import com.omatt.fdlsandbox.BaseActivity;
 import com.omatt.fdlsandbox.R;
@@ -28,6 +29,8 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.textView_fdl_short) TextView textViewFDLShort;
 
     @Inject FirebaseDynamicLinks firebaseDynamicLinks;
+    @Inject
+    FirebaseAnalytics firebaseAnalytics;
 
     @OnClick(R.id.btn_app_invite_send) void sendAppInvite(){
         Log.i(TAG, "Send App Invite Clicked!");

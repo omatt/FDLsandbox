@@ -14,6 +14,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.appinvite.FirebaseAppInvite;
+import com.google.firebase.crash.FirebaseCrash;
 import com.google.firebase.dynamiclinks.DynamicLink;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import com.google.firebase.dynamiclinks.PendingDynamicLinkData;
@@ -125,6 +126,7 @@ public class BaseActivity extends AppCompatActivity {
         try {
             longFDL = URLDecoder.decode(fdlBuilder.buildDynamicLink().getUri().toString(), "utf-8");
         } catch (Exception e){
+            FirebaseCrash.report(e);    // Report Exception
             Log.e(TAG, "dynamicLinkBuilder URL decode error " + e);
         }
         textViewFDLLong.setText(longFDL);

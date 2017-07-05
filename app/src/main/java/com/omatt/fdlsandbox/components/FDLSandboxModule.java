@@ -1,5 +1,6 @@
 package com.omatt.fdlsandbox.components;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import com.omatt.fdlsandbox.utils.AppController;
 
@@ -20,12 +21,22 @@ public class FDLSandboxModule {
     }
 
     /**
-     * Provide injectable FirebaseAuth instance
+     * Provide dependency injectable FirebaseAuth instance
      * @return FirebaseAuth
      */
     @Provides
     @Singleton
     FirebaseDynamicLinks provideFirebaseDynamicLinks(){
         return FirebaseDynamicLinks.getInstance();
+    }
+
+    /**
+     * Provide dependency injectable FirebaseAnalytics instance
+     * @return FirebaseAnalytics
+     */
+    @Provides
+    @Singleton
+    FirebaseAnalytics provideFirebaseAnalytics(){
+        return FirebaseAnalytics.getInstance(app);
     }
 }

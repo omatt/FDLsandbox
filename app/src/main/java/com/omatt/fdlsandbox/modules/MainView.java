@@ -5,6 +5,6 @@ package com.omatt.fdlsandbox.modules;
  * MainActivity View
  */
 
-public interface MainView {
+interface MainView {
     //TODO
 }
