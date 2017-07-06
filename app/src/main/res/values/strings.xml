@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">FDL Sandbox</string>
 
-    <string name="dynamic_link_domain">kuta9.app.goo.gl/</string>
+    <string name="dynamic_link_domain">kuta9.app.goo.gl</string>
     <string name="deep_link">https://www.sample.com</string>
 
     <string name="btn_txt_invite">Send invitations!</string>

@@ -122,16 +122,16 @@ public class BaseActivity extends AppCompatActivity {
      */
     public void dynamicLinkBuilder(final TextView textViewFDLLong, final TextView textViewFDLShort) {
         DynamicLink.Builder fdlBuilder = new DynamicLinkHelper().dynamicLinkBuilder(this);
-        String longFDL = "";
-        try {
-            longFDL = URLDecoder.decode(fdlBuilder.buildDynamicLink().getUri().toString(), "utf-8");
-        } catch (Exception e){
-            FirebaseCrash.report(e);    // Report Exception
-            Log.e(TAG, "dynamicLinkBuilder URL decode error " + e);
-        }
+        String longFDL = fdlBuilder.buildDynamicLink().getUri().toString();
+//        try {
+//            longFDL = URLDecoder.decode(fdlBuilder.buildDynamicLink().getUri().toString(), "utf-8");
+//        } catch (Exception e){
+//            FirebaseCrash.report(e);    // Report Exception
+//            Log.e(TAG, "dynamicLinkBuilder URL decode error " + e);
+//        }
         textViewFDLLong.setText(longFDL);
         Log.i(TAG, "dynamicLinkBuilder long FDL: " + longFDL);
-        FirebaseDynamicLinks.getInstance().createDynamicLink().setLongLink(Uri.parse(longFDL)).buildShortDynamicLink()
+        fdlBuilder.buildShortDynamicLink()
                 .addOnCompleteListener(this, new OnCompleteListener<ShortDynamicLink>() {
                     @Override
                     public void onComplete(@NonNull Task<ShortDynamicLink> task) {
