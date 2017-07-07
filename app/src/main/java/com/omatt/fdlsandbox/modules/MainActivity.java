@@ -12,6 +12,7 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import com.omatt.fdlsandbox.BaseActivity;
 import com.omatt.fdlsandbox.R;
+import com.omatt.fdlsandbox.firebase.AnalyticsHelper;
 import com.omatt.fdlsandbox.firebase.AppInviteHelper;
 import com.omatt.fdlsandbox.utils.AppController;
 
@@ -25,20 +26,30 @@ public class MainActivity extends BaseActivity {
     private final String TAG = "MainActivity";
     private final int REQUEST_INVITE = 0;
 
-    @BindView(R.id.textView_fdl_long) TextView textViewFDLLong;
-    @BindView(R.id.textView_fdl_short) TextView textViewFDLShort;
+    @BindView(R.id.textView_fdl_long)
+    TextView textViewFDLLong;
+    @BindView(R.id.textView_fdl_short)
+    TextView textViewFDLShort;
 
-    @Inject FirebaseDynamicLinks firebaseDynamicLinks;
+    @Inject
+    FirebaseDynamicLinks firebaseDynamicLinks;
     @Inject
     FirebaseAnalytics firebaseAnalytics;
 
-    @OnClick(R.id.btn_app_invite_send) void sendAppInvite(){
+    @OnClick(R.id.btn_app_invite_send)
+    void sendAppInvite() {
+        firebaseAnalytics.logEvent("generateFDL",
+                new AnalyticsHelper().logEventActionBuilder("btn_gen_fdl"));
         Log.i(TAG, "Send App Invite Clicked!");
         // Send AppInvite Intent Builder
         startActivityForResult(new AppInviteHelper().appInviteTemplate(this), REQUEST_INVITE);
     }
 
-    @OnClick(R.id.btn_gen_fdl) void generateFDL(){
+    @OnClick(R.id.btn_gen_fdl)
+    void generateFDL() {
+        firebaseAnalytics.logEvent("generateFDL",
+                new AnalyticsHelper().logEventActionBuilder("btn_gen_fdl"));
+        Log.i(TAG, "Generate FDL Clicked!");
         dynamicLinkBuilder(textViewFDLLong, textViewFDLShort);
     }
 
