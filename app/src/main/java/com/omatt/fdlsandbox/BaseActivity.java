@@ -14,17 +14,12 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.appinvite.FirebaseAppInvite;
-import com.google.firebase.crash.FirebaseCrash;
 import com.google.firebase.dynamiclinks.DynamicLink;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import com.google.firebase.dynamiclinks.PendingDynamicLinkData;
 import com.google.firebase.dynamiclinks.ShortDynamicLink;
 import com.omatt.fdlsandbox.firebase.DynamicLinkHelper;
 import com.omatt.fdlsandbox.modules.DeepLinkPresenter;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
 
 /**
  * Created by omarmatthew on 6/27/17.

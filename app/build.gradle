@@ -7,8 +7,8 @@ android {
         applicationId "com.omatt.fdlsandbox"
         minSdkVersion 21
         targetSdkVersion 26
-        versionCode 6
-        versionName '0.1.4-alpha'
+        versionCode 7
+        versionName '0.1.5-alpha'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -29,11 +29,11 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.google.firebase:firebase-core:11.0.2'
+    compile 'com.google.firebase:firebase-core:11.2.0'
     // Analytics
-    compile 'com.google.firebase:firebase-invites:11.0.2'
+    compile 'com.google.firebase:firebase-invites:11.2.0'
     // App Invites, Dynamic Links
-    compile 'com.google.firebase:firebase-crash:11.0.2'
+    compile 'com.google.firebase:firebase-crash:11.2.0'
     // Crash Reporting
     compile 'com.google.dagger:dagger:2.11'
     // Dependency injection tool

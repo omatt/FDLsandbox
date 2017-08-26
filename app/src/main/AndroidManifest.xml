@@ -22,8 +22,16 @@
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
 
-                <data android:host="www.sample.com" android:scheme="http"/>
-                <data android:host="www.sample.com" android:scheme="https"/>
+                <data android:host="www.sample.com"/>
+                <data android:scheme="https"/>
+                <!--<data android:scheme="https"-->
+                    <!--android:host="www.konusarakogren.com"-->
+                    <!--android:pathPrefix="/sozluk"-->
+                    <!--/>-->
+                <!--<data android:scheme="http"-->
+                    <!--android:host="www.konusarakogren.com"-->
+                    <!--android:pathPrefix="/sozluk"-->
+                    <!--/>-->
             </intent-filter>
         </activity>
         <activity
