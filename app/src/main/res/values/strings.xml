@@ -17,6 +17,7 @@
     <string name="invitation_received">You received an Invitation!</string>
     <string name="txt_deep_link_default">Deep Link not set</string>
     <string name="txt_invite_id_default">Invitation ID not set</string>
+    <string name="txt_referrer_id_default">Referrer ID not set</string>
     <string name="txt_fdl_long">Long FDL will appear here</string>
     <string name="txt_fdl_short">Short FDL will appear here</string>
 

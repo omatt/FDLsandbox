@@ -42,6 +42,18 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_deep_link" />
 
+    <TextView
+        android:id="@+id/textView_referrer_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/txt_invite_id_default"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_invite_id" />
+
     <Button
         android:id="@+id/btn_app_invite_ok"
         android:layout_width="wrap_content"

@@ -2,6 +2,8 @@ package com.omatt.fdlsandbox.components;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
+import com.omatt.fdlsandbox.modules.DeepLinkPresenter;
+import com.omatt.fdlsandbox.modules.MainPresenter;
 import com.omatt.fdlsandbox.utils.AppController;
 
 import javax.inject.Singleton;
@@ -38,5 +40,17 @@ public class FDLSandboxModule {
     @Singleton
     FirebaseAnalytics provideFirebaseAnalytics(){
         return FirebaseAnalytics.getInstance(app);
+    }
+
+    @Provides
+    @Singleton
+    MainPresenter provideMainPresenter(){
+        return new MainPresenter();
+    }
+
+    @Provides
+    @Singleton
+    DeepLinkPresenter provideDeepLinkPresenter(){
+        return new DeepLinkPresenter();
     }
 }

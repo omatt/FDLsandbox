@@ -3,10 +3,10 @@ package com.omatt.fdlsandbox.modules;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
-import com.omatt.fdlsandbox.BaseActivity;
 import com.omatt.fdlsandbox.R;
 import com.omatt.fdlsandbox.utils.AppController;
 
@@ -21,12 +21,14 @@ import butterknife.OnClick;
  * DeepLinkActivity handles FDL deep links
  */
 
-public class DeepLinkActivity extends BaseActivity{
+public class DeepLinkActivity extends AppCompatActivity implements DeepLinkContract.View{
     private final String TAG = "DeepLinkActivity";
     @BindView(R.id.textView_deep_link)
     TextView textViewDeepLink;
     @BindView(R.id.textView_invite_id)
     TextView textViewInviteId;
+    @BindView(R.id.textView_referrer_id)
+    TextView textViewReferrerId;
 
     @OnClick(R.id.btn_app_invite_ok)
     void onClickedOk() {
@@ -34,7 +36,7 @@ public class DeepLinkActivity extends BaseActivity{
     }
 
     @Inject
-    FirebaseDynamicLinks mDynamicLinks;
+    DeepLinkPresenter mDeepLinkPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,11 +44,39 @@ public class DeepLinkActivity extends BaseActivity{
         setContentView(R.layout.layout_activity_deep_link);
         ButterKnife.bind(this);
         AppController.getComponent(this).inject(this);
-        processReferralIntent(getIntent(), textViewDeepLink, textViewInviteId);
+
+        mDeepLinkPresenter.processDeepLink(getIntent());
     }
 
     @Override
-    public void processReferralIntent(Intent intent, TextView textViewDeepLink, TextView textViewInviteId) {
-        super.processReferralIntent(intent, textViewDeepLink, textViewInviteId);
+    protected void onResume() {
+        super.onResume();
+        mDeepLinkPresenter.takeView(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        mDeepLinkPresenter.dropView();
+        super.onDestroy();
+    }
+
+    @Override
+    public MainActivity getMainActivity() {
+        return null;
+    }
+
+    @Override
+    public void updateDeepLink(String deepLink) {
+        textViewDeepLink.setText(deepLink);
+    }
+
+    @Override
+    public void updateInviteId(String inviteId) {
+        textViewInviteId.setText(inviteId);
+    }
+
+    @Override
+    public void updateReferrerId(String referrerId) {
+        textViewReferrerId.setText(referrerId);
     }
 }

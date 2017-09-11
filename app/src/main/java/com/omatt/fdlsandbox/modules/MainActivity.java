@@ -1,6 +1,5 @@
 package com.omatt.fdlsandbox.modules;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,7 +9,6 @@ import android.widget.TextView;
 import com.google.android.gms.appinvite.AppInviteInvitation;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
-import com.omatt.fdlsandbox.BaseActivity;
 import com.omatt.fdlsandbox.R;
 import com.omatt.fdlsandbox.firebase.AnalyticsHelper;
 import com.omatt.fdlsandbox.firebase.AppInviteHelper;
@@ -22,7 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends AppCompatActivity implements MainContract.View{
     private final String TAG = "MainActivity";
     private final int REQUEST_INVITE = 0;
 
@@ -35,6 +33,7 @@ public class MainActivity extends BaseActivity {
     FirebaseDynamicLinks firebaseDynamicLinks;
     @Inject
     FirebaseAnalytics firebaseAnalytics;
+    @Inject MainPresenter mainPresenter;
 
     @OnClick(R.id.btn_app_invite_send)
     void sendAppInvite() {
@@ -50,17 +49,7 @@ public class MainActivity extends BaseActivity {
         firebaseAnalytics.logEvent("generateFDL",
                 new AnalyticsHelper().logEventActionBuilder("btn_gen_fdl"));
         Log.i(TAG, "Generate FDL Clicked!");
-        dynamicLinkBuilder(textViewFDLLong, textViewFDLShort);
-    }
-
-    @Override
-    public void processDeepLink(Context context, Intent intent) {
-        super.processDeepLink(context, intent);
-    }
-
-    @Override
-    public void dynamicLinkBuilder(TextView textViewFDLLong, TextView textViewFDLShort) {
-        super.dynamicLinkBuilder(textViewFDLLong, textViewFDLShort);
+        mainPresenter.buildDynamicLink();
     }
 
     @Override
@@ -70,7 +59,19 @@ public class MainActivity extends BaseActivity {
         ButterKnife.bind(this);
         AppController.getComponent(this).inject(this);
 
-        processDeepLink(this, getIntent());
+        mainPresenter.processDeepLink(getIntent());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mainPresenter.takeView(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        mainPresenter.dropView();
+        super.onDestroy();
     }
 
     @Override
@@ -93,5 +94,20 @@ public class MainActivity extends BaseActivity {
                 // [END_EXCLUDE]
             }
         }
+    }
+
+    @Override
+    public MainActivity getMainActivity() {
+        return this;
+    }
+
+    @Override
+    public void updateDynamicLinkLong(String link) {
+        textViewFDLLong.setText(link);
+    }
+
+    @Override
+    public void updateDynamicLinkShort(String link) {
+        textViewFDLShort.setText(link);
     }
 }
