@@ -41,16 +41,4 @@ public class FDLSandboxModule {
     FirebaseAnalytics provideFirebaseAnalytics(){
         return FirebaseAnalytics.getInstance(app);
     }
-
-    @Provides
-    @Singleton
-    MainPresenter provideMainPresenter(){
-        return new MainPresenter();
-    }
-
-    @Provides
-    @Singleton
-    DeepLinkPresenter provideDeepLinkPresenter(){
-        return new DeepLinkPresenter();
-    }
 }

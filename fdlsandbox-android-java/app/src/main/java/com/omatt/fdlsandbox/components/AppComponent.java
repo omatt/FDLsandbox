@@ -12,7 +12,7 @@ import dagger.Component;
  */
 
 @Singleton
-@Component(modules = {FDLSandboxModule.class})
+@Component(modules = {FDLSandboxModule.class, MainModule.class, DeepLinkModule.class})
 public interface AppComponent {
     void inject(MainActivity mainActivity);
     void inject(DeepLinkActivity deepLinkActivity);
