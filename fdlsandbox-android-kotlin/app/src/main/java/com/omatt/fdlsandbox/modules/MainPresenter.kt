@@ -1,5 +1,6 @@
 package com.omatt.fdlsandbox.modules
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -11,6 +12,8 @@ import com.google.firebase.dynamiclinks.FirebaseDynamicLinks
 import com.google.firebase.dynamiclinks.PendingDynamicLinkData
 import com.google.firebase.dynamiclinks.ShortDynamicLink
 import com.omatt.fdlsandbox.AppController
+import com.omatt.fdlsandbox.R
+import com.omatt.fdlsandbox.firebase.AppInviteHelper
 import com.omatt.fdlsandbox.firebase.DynamicLinkHelper
 import java.lang.Exception
 
@@ -19,6 +22,7 @@ import java.lang.Exception
  * MainActivity Presenter
  */
 class MainPresenter : MainContract.Presenter {
+
     private val TAG = "MainPresenter"
     lateinit var mainView: MainContract.View
 
@@ -36,6 +40,31 @@ class MainPresenter : MainContract.Presenter {
      */
     override fun dropView() {
         mainView
+    }
+
+    override fun sendAppInvite(activity: Activity, resultCode: Int) {
+        val link = activity.getString(R.string.deep_link) + "?customId=" + "sampleCustomId"
+        FirebaseDynamicLinks.getInstance().createDynamicLink()
+                .setLink(Uri.parse(link))
+                .setDynamicLinkDomain(activity.getString(R.string.dynamic_link_domain))
+                .setAndroidParameters(
+                        DynamicLink.AndroidParameters.Builder(activity.packageName)
+                                .setMinimumVersion(8)
+                                .build())
+                .setIosParameters(
+                        DynamicLink.IosParameters.Builder("com.example.ios")
+                                .setAppStoreId("123456789")
+                                .setMinimumVersion("1.0.1")
+                                .build())
+                .buildShortDynamicLink()
+                .addOnSuccessListener({ shortDynamicLink: ShortDynamicLink? ->
+                    if (shortDynamicLink != null) {
+                        Log.i(TAG, "sendAppInvite shortLink: ${shortDynamicLink.shortLink}")
+                        Log.i(TAG, "sendAppInvite debug link: ${shortDynamicLink.previewLink}")
+                        activity.startActivityForResult(AppInviteHelper().appInviteTemplate(activity, shortDynamicLink.shortLink.toString()), resultCode)
+                    }
+                })
+
     }
 
     /**

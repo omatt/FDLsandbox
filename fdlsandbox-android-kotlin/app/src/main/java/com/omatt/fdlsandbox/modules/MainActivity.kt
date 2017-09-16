@@ -1,6 +1,5 @@
 package com.omatt.fdlsandbox.modules
 
-import android.app.Activity
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -14,7 +13,6 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import com.omatt.fdlsandbox.AppController
 import com.omatt.fdlsandbox.R
 import com.omatt.fdlsandbox.firebase.AnalyticsHelper
-import com.omatt.fdlsandbox.firebase.AppInviteHelper
 import javax.inject.Inject
 
 /**
@@ -83,7 +81,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     fun sendAppInvite() {
         Log.i(TAG, "Send App Invite Clicked!")
         firebaseAnalytics.logEvent("generateFDL", AnalyticsHelper().logEventActionBuilder("btn_app_invite_send"))
-        startActivityForResult(AppInviteHelper().appInviteTemplate(this), REQUEST_INVITE)
+        mainPresenter.sendAppInvite(this, REQUEST_INVITE)
     }
 
     @OnClick(R.id.btn_gen_fdl)

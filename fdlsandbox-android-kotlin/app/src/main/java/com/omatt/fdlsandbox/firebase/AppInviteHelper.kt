@@ -13,12 +13,13 @@ class AppInviteHelper {
     /**
      * Returns Invite build template
      * @param context Context
+     * @param deepLink String
      * @return Intent
      */
-    fun appInviteTemplate(context : Context) : Intent {
+    fun appInviteTemplate(context : Context, deepLink : String) : Intent {
         return AppInviteInvitation.IntentBuilder(context.getString(R.string.invitation_title))
                 .setMessage(context.getString(R.string.invitation_message))
-                .setDeepLink(Uri.parse(context.getString(R.string.invitation_deep_link)))
+                .setDeepLink(Uri.parse(deepLink))
                 .setCustomImage(Uri.parse(context.getString(R.string.invitation_custom_image)))
                 .setCallToActionText(context.getString(R.string.invitation_cta))
                 .build()
