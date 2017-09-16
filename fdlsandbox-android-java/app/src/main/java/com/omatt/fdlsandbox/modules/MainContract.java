@@ -1,5 +1,6 @@
 package com.omatt.fdlsandbox.modules;
 
+import android.app.Activity;
 import android.content.Intent;
 
 import com.omatt.fdlsandbox.BasePresenter;
@@ -17,6 +18,8 @@ interface MainContract {
         void updateDynamicLinkShort(String link);
     }
     interface Presenter extends BasePresenter<View> {
+        void sendAppInvite(Activity activity, int resultCode);
+
         void processDeepLink(Intent intent);
 
         void buildDynamicLink();

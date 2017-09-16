@@ -1,14 +1,19 @@
 package com.omatt.fdlsandbox.modules;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.appinvite.FirebaseAppInvite;
 import com.google.firebase.dynamiclinks.DynamicLink;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
+import com.google.firebase.dynamiclinks.ShortDynamicLink;
+import com.omatt.fdlsandbox.R;
+import com.omatt.fdlsandbox.firebase.AppInviteHelper;
 import com.omatt.fdlsandbox.firebase.DynamicLinkHelper;
 import com.omatt.fdlsandbox.utils.AppController;
 
@@ -29,6 +34,29 @@ public class MainPresenter implements MainContract.Presenter{
     @Override
     public void dropView() {
         mainView = null;
+    }
+
+    @Override
+    public void sendAppInvite(Activity activity, int resultCode) {
+        String link = activity.getString(R.string.deep_link) + "?customId=" + "sampleCustomId";
+        FirebaseDynamicLinks.getInstance().createDynamicLink()
+                .setLink(Uri.parse(link))
+                .setDynamicLinkDomain(activity.getString(R.string.dynamic_link_domain))
+                .setAndroidParameters(
+                        new DynamicLink.AndroidParameters.Builder(activity.getPackageName())
+                                .setMinimumVersion(8)
+                                .build())
+                .setIosParameters(
+                        new DynamicLink.IosParameters.Builder("com.example.ios")
+                                .setAppStoreId("123456789")
+                                .setMinimumVersion("1.0.1")
+                                .build())
+                .buildShortDynamicLink()
+                .addOnSuccessListener(shortDynamicLink -> {
+                    Log.i(TAG, "sendAppInvite shortLink: " + shortDynamicLink.getShortLink().toString());
+                    Log.i(TAG, "sendAppInvite debug link: " + shortDynamicLink.getPreviewLink().toString());
+                    activity.startActivityForResult(new AppInviteHelper().appInviteTemplate(shortDynamicLink.getShortLink().toString()), resultCode);
+                });
     }
 
     @Override

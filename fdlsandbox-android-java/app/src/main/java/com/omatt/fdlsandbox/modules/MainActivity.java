@@ -38,10 +38,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @OnClick(R.id.btn_app_invite_send)
     void sendAppInvite() {
         firebaseAnalytics.logEvent("generateFDL",
-                new AnalyticsHelper().logEventActionBuilder("btn_gen_fdl"));
+                new AnalyticsHelper().logEventActionBuilder("btn_app_invite_send"));
         Log.i(TAG, "Send App Invite Clicked!");
-        // Send AppInvite Intent Builder
-        startActivityForResult(new AppInviteHelper().appInviteTemplate(this), REQUEST_INVITE);
+        mainPresenter.sendAppInvite(this, REQUEST_INVITE);
     }
 
     @OnClick(R.id.btn_gen_fdl)

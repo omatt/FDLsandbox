@@ -40,8 +40,8 @@ public class DeepLinkPresenter implements DeepLinkContract.Presenter {
             deepLinkView.updateDeepLink(deepLink.toString());
 
             // Fetch referrer id
-            if (deepLink.getBooleanQueryParameter("invitedby", false))
-                deepLinkView.updateReferrerId(deepLink.getQueryParameter("invitedby"));
+            if (deepLink.getBooleanQueryParameter("customId", false))
+                deepLinkView.updateReferrerId(deepLink.getQueryParameter("customId"));
 
             // Extract invite
             FirebaseAppInvite invite = FirebaseAppInvite.getInvitation(data);
