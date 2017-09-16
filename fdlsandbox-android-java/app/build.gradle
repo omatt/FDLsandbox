@@ -7,8 +7,8 @@ android {
         applicationId "com.omatt.fdlsandbox"
         minSdkVersion 21
         targetSdkVersion 26
-        versionCode 8
-        versionName '0.1.6-alpha'
+        versionCode 9
+        versionName '0.1.7-alpha'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
