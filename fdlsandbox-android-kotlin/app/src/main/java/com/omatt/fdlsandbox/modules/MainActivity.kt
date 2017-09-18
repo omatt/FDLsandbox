@@ -14,6 +14,8 @@ import com.omatt.fdlsandbox.AppController
 import com.omatt.fdlsandbox.R
 import com.omatt.fdlsandbox.firebase.AnalyticsHelper
 import javax.inject.Inject
+import kotlinx.android.synthetic.main.layout_activity_main.textView_fdl_long
+import kotlinx.android.synthetic.main.layout_activity_main.textView_fdl_short
 
 /**
  * Class : ParentClass(), Interface
@@ -96,6 +98,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
      */
     override fun updateDynamicLinkLong(link: String) {
         textViewFDLLong.text = link
+//        textView_fdl_long.text = link
     }
 
     /**
@@ -103,5 +106,6 @@ class MainActivity : AppCompatActivity(), MainContract.View {
      */
     override fun updateDynamicLinkShort(link: String) {
         textViewFDLShort.text = link
+//        textView_fdl_short.text = link
     }
 }
