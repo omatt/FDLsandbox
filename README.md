@@ -1,6 +1,8 @@
 # FDLsandbox
 Simple sandbox implementing features of Firebase Dynamic Links and App Invites
 
+Now ported to Kotlin :wink:
+
 ![alt text](https://firebase.google.com/_static/0fb3bb994f/images/firebase/lockup.png)
 
 ## Dependecies used
@@ -9,5 +11,5 @@ Simple sandbox implementing features of Firebase Dynamic Links and App Invites
 * firebase-crash ([Crash Reporting](https://firebase.google.com/docs/crash/android))
 * [dagger](http://square.github.io/dagger/)
 * [butterknife](http://jakewharton.github.io/butterknife/)
-* [rxandroid](https://github.com/ReactiveX/RxAndroid)
-* [rxjava](https://github.com/ReactiveX/RxJava)
+* ~~[rxandroid](https://github.com/ReactiveX/RxAndroid)~~
+* ~~[rxjava](https://github.com/ReactiveX/RxJava)~~
