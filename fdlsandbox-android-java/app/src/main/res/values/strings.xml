@@ -6,7 +6,10 @@
 
     <string name="btn_txt_invite">Send invitations!</string>
     <string name="btn_txt_gen_fdl">Generate FDL</string>
-    <string name="btn_txt_ok">Ok</string>
+    <string name="btn_txt_ok">OK</string>
+    <string name="btn_txt_force_crash">Force Crash</string>
+
+    <string name="switch_txt_catch_crash">Catch Crash</string>
 
     <string name="invitation_title">Send App Invite Quickstart Invitation</string>
     <string name="invitation_message">This app is terrific, give it a try and get $5 off!</string>

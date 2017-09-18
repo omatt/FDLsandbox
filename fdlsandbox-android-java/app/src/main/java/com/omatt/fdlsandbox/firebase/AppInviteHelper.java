@@ -5,7 +5,7 @@ import android.net.Uri;
 
 import com.google.android.gms.appinvite.AppInviteInvitation;
 import com.omatt.fdlsandbox.R;
-import com.omatt.fdlsandbox.utils.AppController;
+import com.omatt.fdlsandbox.AppController;
 
 /**
  * Created by omarmatthew on 6/25/17.

@@ -11,18 +11,19 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import com.omatt.fdlsandbox.R;
 import com.omatt.fdlsandbox.firebase.AnalyticsHelper;
-import com.omatt.fdlsandbox.firebase.AppInviteHelper;
-import com.omatt.fdlsandbox.utils.AppController;
+import com.omatt.fdlsandbox.AppController;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View{
     private final String TAG = "MainActivity";
     private final int REQUEST_INVITE = 0;
+    private boolean catchCrash = false;
 
     @BindView(R.id.textView_fdl_long)
     TextView textViewFDLLong;
@@ -49,6 +50,17 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 new AnalyticsHelper().logEventActionBuilder("btn_gen_fdl"));
         Log.i(TAG, "Generate FDL Clicked!");
         mainPresenter.buildDynamicLink();
+    }
+
+    @OnClick(R.id.btn_force_crash)
+    void onClickCrash(){
+        mainPresenter.forceCrash(catchCrash);
+    }
+
+    @OnCheckedChanged(R.id.switch_catch_crash)
+    void onSwitchChanged(boolean checked){
+        Log.i(TAG, "switch " + checked);
+        catchCrash = checked;
     }
 
     @Override

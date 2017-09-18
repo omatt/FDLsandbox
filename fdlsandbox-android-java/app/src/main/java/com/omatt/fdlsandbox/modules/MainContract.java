@@ -23,5 +23,7 @@ interface MainContract {
         void processDeepLink(Intent intent);
 
         void buildDynamicLink();
+
+        void forceCrash(boolean catchCrash);
     }
 }

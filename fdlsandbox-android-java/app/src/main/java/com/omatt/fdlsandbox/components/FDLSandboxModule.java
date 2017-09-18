@@ -2,9 +2,7 @@ package com.omatt.fdlsandbox.components;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
-import com.omatt.fdlsandbox.modules.DeepLinkPresenter;
-import com.omatt.fdlsandbox.modules.MainPresenter;
-import com.omatt.fdlsandbox.utils.AppController;
+import com.omatt.fdlsandbox.AppController;
 
 import javax.inject.Singleton;
 

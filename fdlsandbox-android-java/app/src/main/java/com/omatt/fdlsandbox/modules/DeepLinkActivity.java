@@ -1,14 +1,12 @@
 package com.omatt.fdlsandbox.modules;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import com.omatt.fdlsandbox.R;
-import com.omatt.fdlsandbox.utils.AppController;
+import com.omatt.fdlsandbox.AppController;
 
 import javax.inject.Inject;
 

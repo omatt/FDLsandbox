@@ -3,19 +3,17 @@ package com.omatt.fdlsandbox.modules;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.appinvite.FirebaseAppInvite;
+import com.google.firebase.crash.FirebaseCrash;
 import com.google.firebase.dynamiclinks.DynamicLink;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
-import com.google.firebase.dynamiclinks.ShortDynamicLink;
 import com.omatt.fdlsandbox.R;
 import com.omatt.fdlsandbox.firebase.AppInviteHelper;
 import com.omatt.fdlsandbox.firebase.DynamicLinkHelper;
-import com.omatt.fdlsandbox.utils.AppController;
+import com.omatt.fdlsandbox.AppController;
 
 /**
  * Created by omarmatthew on 6/27/17.
@@ -107,5 +105,28 @@ public class MainPresenter implements MainContract.Presenter{
                 Log.i(TAG, "dynamicLinkBuilder preview FDL: " + flowchartLink.toString());
             }
         }).addOnFailureListener(e -> Log.e(TAG, "dynamicLinkBuilder Error: " + e));
+    }
+
+    @Override
+    public void forceCrash(boolean catchCrash) {
+        // Log that crash button was clicked. This version of Crash.log() will include the
+        // message in the crash report as well as show the message in logcat.
+        FirebaseCrash.logcat(Log.INFO, TAG, "Crash button clicked");
+
+        // If catchCrashCheckBox is checked catch the exception and report is using
+        // Crash.report(). Otherwise throw the exception and let Firebase Crash automatically
+        // report the crash.
+        if(catchCrash) {
+            try {
+                throw new NullPointerException();
+            } catch (NullPointerException ex) {
+                // [START log_and_report]
+                FirebaseCrash.logcat(Log.ERROR, TAG, "NPE caught");
+                FirebaseCrash.log("My Exception in device details");
+//                FirebaseCrash.report(ex);
+                FirebaseCrash.report(new Exception(ex.getMessage()+" - "+ex.getCause()));
+                // [END log_and_report]
+            }
+        } else throw new NullPointerException();
     }
 }
