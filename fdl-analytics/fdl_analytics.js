@@ -3,7 +3,7 @@ var request = require('request');
 
 var google = require('googleapis');
 
-var serviceAccount = require("LOCATION OF YOUR PRIVATE KEY)");
+var serviceAccount = require("LOCATION OF YOUR PRIVATE KEY");
 var credential = admin.credential.cert(serviceAccount);
 
 var jwtClient = new google.auth.JWT(serviceAccount.client_email, null, serviceAccount.private_key, [
