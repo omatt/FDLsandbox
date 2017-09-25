@@ -14,7 +14,7 @@ npm install firebase-admin --save
    // Check current npm version
    npm -v
 
-   // Installs latest npm3
+   // Install latest npm3
    npm install -g npm@latest-3
 
    // Install all required dependencies
