@@ -9,10 +9,22 @@ More information regarding FDL Analytics REST API can be viewed [here](https://f
 ```
 npm install firebase-admin --save
 ```
+   * If you're having issues installing node dependencies, I suggest to use npm3
+   ```
+   // Check current npm version
+   npm -v
+
+   // Installs latest npm3
+   npm install -g npm@latest-3
+
+   // Install all required dependencies
+   npm install
+   ```
 3. Add Google API
 ```
 npm install googleapis --save
 ```
+   * Having trouble installing googleapis? If it doesn't work, try running the command in sudo
 4. Get your Private Key
 
    1. Go to your [Firebase Console](https://console.firebase.google.com/)
