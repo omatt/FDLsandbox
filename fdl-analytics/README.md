@@ -15,17 +15,17 @@ npm install googleapis --save
 ```
 4. Get your Private Key
 
-...Go to your [Firebase Console](https://console.firebase.google.com/)
+   1. Go to your [Firebase Console](https://console.firebase.google.com/)
 
-...Open your Project
+   2. Open your Project
 
-...Click the gear icon located in the on the upper left side-panel, and choose **Project Settings**
+   3. Click the gear icon located in the on the upper left side-panel, and choose **Project Settings**
 
-...Select **Service Accounts** tab
+   4. Select **Service Accounts** tab
 
-...Select **Firebase Admin SDK**
+   5. Select **Firebase Admin SDK**
 
-...Click **Generate New Private Key**
+   6. Click **Generate New Private Key**
 
 ## Run
 
