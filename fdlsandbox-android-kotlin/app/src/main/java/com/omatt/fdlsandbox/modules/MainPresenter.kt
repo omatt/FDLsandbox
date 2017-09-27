@@ -98,20 +98,27 @@ class MainPresenter : MainContract.Presenter {
      * @param context Context
      */
     override fun buildDynamicLink(context: Context) {
-        val fdlBuilder = DynamicLinkHelper().dynamicLinkBuilder(context)
+        val fdlBuilder = DynamicLinkHelper().dynamicLinkBuilderTest(context)
         val longFDL = fdlBuilder.buildDynamicLink().uri.toString()
 
         mainView.updateDynamicLinkLong(longFDL)
         Log.i(TAG, "dynamicLinkBuilder long FDL: $longFDL")
-        fdlBuilder.buildShortDynamicLink().addOnSuccessListener({ shortDynamicLink: ShortDynamicLink? ->
-            if (shortDynamicLink != null) {
-                val shortLink = shortDynamicLink.shortLink.toString()
-                val debugLink = shortDynamicLink.previewLink.toString()
-                mainView.updateDynamicLinkShort(shortLink)
-                Log.i(TAG, "dynamicLinkBuilder short FDL: $shortLink")
-                Log.i(TAG, "dynamicLinkBuilder preview FDL: $debugLink")
-            }
-        }).addOnFailureListener({ exception: Exception ->
+        fdlBuilder.buildShortDynamicLink()
+                .addOnCompleteListener({ task ->
+                    if (task.isSuccessful) {
+                        Log.i(TAG, "dynamicLinkBuilder success short FDL ${task.result.shortLink}")
+                        Log.i(TAG, "dynamicLinkBuilder success preview FDL ${task.result.previewLink}")
+                    } else Log.e(TAG, "dynamicLinkBuilder failed")
+                })
+                .addOnSuccessListener({ shortDynamicLink: ShortDynamicLink? ->
+                    if (shortDynamicLink != null) {
+                        val shortLink = shortDynamicLink.shortLink.toString()
+                        val debugLink = shortDynamicLink.previewLink.toString()
+                        mainView.updateDynamicLinkShort(shortLink)
+                        Log.i(TAG, "dynamicLinkBuilder short FDL: $shortLink")
+                        Log.i(TAG, "dynamicLinkBuilder preview FDL: $debugLink")
+                    }
+                }).addOnFailureListener({ exception: Exception ->
             Log.e(TAG, "dynamicLinkBuilder Error: $exception")
         })
     }
