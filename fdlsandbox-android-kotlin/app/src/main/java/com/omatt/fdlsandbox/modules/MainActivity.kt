@@ -43,8 +43,6 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         setContentView(R.layout.layout_activity_main)
         ButterKnife.bind(this)
         AppController.component.inject(this)
-
-        mainPresenter.processDeepLink(intent)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
@@ -67,6 +65,8 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun onResume() {
         super.onResume()
         mainPresenter.takeView(this)
+
+        mainPresenter.processDeepLink(intent)
     }
 
     /**

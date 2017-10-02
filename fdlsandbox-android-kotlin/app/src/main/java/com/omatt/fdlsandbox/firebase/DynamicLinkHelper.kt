@@ -20,7 +20,7 @@ class DynamicLinkHelper {
 
     fun dynamicLinkBuilderTest(context: Context): DynamicLink.Builder {
         return FirebaseDynamicLinks.getInstance().createDynamicLink()
-                .setLink(Uri.parse(context.getString(R.string.deep_link)))
+                .setLink(Uri.parse("https://www.sample.com/?userId=sampleUserIdValue&setLng=en&customId=sampleCustomId"))
                 .setDynamicLinkDomain(context.getString(R.string.dynamic_link_domain))
                 // Open links with this app on Android
                 .setAndroidParameters(DynamicLink.AndroidParameters.Builder(context.packageName).setMinimumVersion(1).build())
