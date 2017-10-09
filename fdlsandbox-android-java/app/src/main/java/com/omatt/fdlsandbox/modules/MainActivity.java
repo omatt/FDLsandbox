@@ -69,14 +69,14 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         setContentView(R.layout.layout_activity_main);
         ButterKnife.bind(this);
         AppController.getComponent(this).inject(this);
-
-        mainPresenter.processDeepLink(getIntent());
+        FirebaseAnalytics.getInstance(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         mainPresenter.takeView(this);
+        mainPresenter.processDeepLink(getIntent());
     }
 
     @Override
