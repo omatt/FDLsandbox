@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.1'
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.omatt.fdlsandbox"
         minSdkVersion 21
         targetSdkVersion 26
-        versionCode 10
-        versionName '0.1.8-alpha'
+        versionCode 11
+        versionName '0.2.0-alpha'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -17,14 +17,12 @@ android {
             minifyEnabled true  // enables obsfucation
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.key
-            proguardFile '<PATH to proguard file>'
         }
         debug {
             minifyEnabled true
             useProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.key
-            proguardFile '<PATH to proguard file>'
         }
     }
     compileOptions {
