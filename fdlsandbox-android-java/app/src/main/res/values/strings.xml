@@ -25,5 +25,6 @@
     <string name="txt_referrer_id_default">Referrer ID not set</string>
     <string name="txt_fdl_long">Long FDL will appear here</string>
     <string name="txt_fdl_short">Short FDL will appear here</string>
+    <string name="txt_fdl_short_empty">Short FDL is empty</string>
 
 </resources>

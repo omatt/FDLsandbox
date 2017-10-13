@@ -1,6 +1,6 @@
 package com.omatt.fdlsandbox;
 
-import com.omatt.fdlsandbox.modules.MainActivity;
+import com.omatt.fdlsandbox.modules.main.MainActivity;
 
 /**
  * Created by omarmatthew on 6/27/17.

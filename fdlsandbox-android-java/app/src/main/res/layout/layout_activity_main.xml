@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/activity_default_margin"
-    tools:context="com.omatt.fdlsandbox.modules.MainActivity">
+    tools:context="com.omatt.fdlsandbox.modules.main.MainActivity">
 
     <Button
         android:id="@+id/btn_app_invite_send"

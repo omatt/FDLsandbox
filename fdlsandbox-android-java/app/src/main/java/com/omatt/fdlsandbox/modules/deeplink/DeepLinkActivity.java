@@ -1,4 +1,4 @@
-package com.omatt.fdlsandbox.modules;
+package com.omatt.fdlsandbox.modules.deeplink;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.omatt.fdlsandbox.R;
 import com.omatt.fdlsandbox.AppController;
+import com.omatt.fdlsandbox.modules.main.MainActivity;
 
 import javax.inject.Inject;
 

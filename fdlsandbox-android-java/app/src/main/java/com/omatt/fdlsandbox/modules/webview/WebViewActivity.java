@@ -1,4 +1,4 @@
-package com.omatt.fdlsandbox.modules;
+package com.omatt.fdlsandbox.modules.webview;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -20,8 +20,7 @@ import butterknife.OnCheckedChanged;
 
 public class WebViewActivity extends AppCompatActivity {
     private final String TAG = "WebViewActivity";
-    //    private final String dynamicLink = "https://kuta9.app.goo.gl/YJ5F";
-    private final String dynamicLink = "https://s3qmk.app.goo.gl/z1Na";
+    private String dynamicLink;
     @BindView(R.id.webview)
     WebView webView;
 
@@ -30,6 +29,9 @@ public class WebViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_activity_web_view);
         ButterKnife.bind(this);
+
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null) dynamicLink = bundle.getString("KEY_FDL");
         initWebView(false, dynamicLink);
     }
 

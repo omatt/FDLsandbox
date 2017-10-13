@@ -1,4 +1,4 @@
-package com.omatt.fdlsandbox.modules;
+package com.omatt.fdlsandbox.modules.deeplink;
 
 import android.content.Intent;
 

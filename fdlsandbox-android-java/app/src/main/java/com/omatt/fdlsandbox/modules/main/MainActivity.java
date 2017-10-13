@@ -1,10 +1,11 @@
-package com.omatt.fdlsandbox.modules;
+package com.omatt.fdlsandbox.modules.main;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.appinvite.AppInviteInvitation;
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -12,6 +13,7 @@ import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import com.omatt.fdlsandbox.R;
 import com.omatt.fdlsandbox.firebase.AnalyticsHelper;
 import com.omatt.fdlsandbox.AppController;
+import com.omatt.fdlsandbox.modules.webview.WebViewActivity;
 
 import javax.inject.Inject;
 
@@ -54,7 +56,14 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @OnClick(R.id.btn_web_view)
     void openWebView(){
-        startActivity(new Intent(this, WebViewActivity.class));
+        Intent intent = new Intent(this, WebViewActivity.class);
+        String shortFDL = textViewFDLShort.getText().toString();
+        if (!shortFDL.equals(getString(R.string.txt_fdl_short))){
+            intent.putExtra("KEY_FDL", shortFDL);
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, getString(R.string.txt_fdl_short_empty), Toast.LENGTH_SHORT).show();
+        }
     }
 
     @OnClick(R.id.btn_force_crash)

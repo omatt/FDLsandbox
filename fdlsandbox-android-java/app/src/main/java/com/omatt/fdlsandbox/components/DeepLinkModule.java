@@ -1,6 +1,6 @@
 package com.omatt.fdlsandbox.components;
 
-import com.omatt.fdlsandbox.modules.DeepLinkPresenter;
+import com.omatt.fdlsandbox.modules.deeplink.DeepLinkPresenter;
 
 import javax.inject.Singleton;
 

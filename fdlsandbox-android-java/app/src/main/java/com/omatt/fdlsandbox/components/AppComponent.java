@@ -1,7 +1,7 @@
 package com.omatt.fdlsandbox.components;
 
-import com.omatt.fdlsandbox.modules.DeepLinkActivity;
-import com.omatt.fdlsandbox.modules.MainActivity;
+import com.omatt.fdlsandbox.modules.deeplink.DeepLinkActivity;
+import com.omatt.fdlsandbox.modules.main.MainActivity;
 
 import javax.inject.Singleton;
 

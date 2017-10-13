@@ -1,6 +1,6 @@
 package com.omatt.fdlsandbox.components;
 
-import com.omatt.fdlsandbox.modules.MainPresenter;
+import com.omatt.fdlsandbox.modules.main.MainPresenter;
 
 import javax.inject.Singleton;
 
