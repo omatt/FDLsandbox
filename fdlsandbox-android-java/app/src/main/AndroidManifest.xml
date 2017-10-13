@@ -51,6 +51,7 @@
             </intent-filter>
             <!-- [END deep_link_filter] -->
         </activity>
+        <activity android:name=".modules.WebViewActivity" />
     </application>
 
 </manifest>

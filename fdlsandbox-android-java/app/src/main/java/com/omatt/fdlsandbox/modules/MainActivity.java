@@ -52,6 +52,11 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         mainPresenter.buildDynamicLink();
     }
 
+    @OnClick(R.id.btn_web_view)
+    void openWebView(){
+        startActivity(new Intent(this, WebViewActivity.class));
+    }
+
     @OnClick(R.id.btn_force_crash)
     void onClickCrash(){
         mainPresenter.forceCrash(catchCrash);
