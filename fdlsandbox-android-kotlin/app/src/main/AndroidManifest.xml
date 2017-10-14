@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".modules.MainActivity">
+        <activity android:name=".modules.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".modules.DeepLinkActivity"
+            android:name=".modules.deeplink.DeepLinkActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
 
@@ -50,6 +50,7 @@
             </intent-filter>
             <!-- [END deep_link_filter] -->
         </activity>
+        <activity android:name=".modules.webview.InAppBrowserActivity" />
     </application>
 
 </manifest>

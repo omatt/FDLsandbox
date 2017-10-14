@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/activity_default_margin"
-    tools:context="com.omatt.fdlsandbox.modules.MainActivity">
+    tools:context="com.omatt.fdlsandbox.modules.main.MainActivity">
 
     <Button
         android:id="@+id/btn_app_invite_send"
@@ -56,4 +56,16 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_fdl_long" />
+
+    <Button
+        android:id="@+id/btn_web_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/btn_txt_web_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_fdl_short" />
 </android.support.constraint.ConstraintLayout>

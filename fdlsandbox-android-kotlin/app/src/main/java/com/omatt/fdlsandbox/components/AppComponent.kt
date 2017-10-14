@@ -1,8 +1,9 @@
 package com.omatt.fdlsandbox.components
 
 import com.omatt.fdlsandbox.AppController
-import com.omatt.fdlsandbox.modules.DeepLinkActivity
-import com.omatt.fdlsandbox.modules.MainActivity
+import com.omatt.fdlsandbox.modules.deeplink.DeepLinkActivity
+import com.omatt.fdlsandbox.modules.main.MainActivity
+import com.omatt.fdlsandbox.modules.webview.InAppBrowserActivity
 import dagger.Component
 import javax.inject.Singleton
 
@@ -11,9 +12,10 @@ import javax.inject.Singleton
  * App Component
  */
 @Singleton
-@Component(modules = arrayOf(AppModule::class, MainModule::class, DeepLinkModule::class))
+@Component(modules = arrayOf(AppModule::class, MainModule::class, DeepLinkModule::class, InAppBrowserModule::class))
 interface AppComponent {
     fun inject(app: AppController)
     fun inject(mainActivity: MainActivity)
     fun inject(deepLinkActivity: DeepLinkActivity)
+    fun inject(inAppBrowserActivity: InAppBrowserActivity)
 }

@@ -1,6 +1,5 @@
 package com.omatt.fdlsandbox.components
 
-import com.google.firebase.dynamiclinks.FirebaseDynamicLinks
 import com.omatt.fdlsandbox.AppController
 import dagger.Module
 import dagger.Provides

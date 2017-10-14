@@ -1,7 +1,18 @@
 package com.omatt.fdlsandbox.modules.webview
 
+import android.util.Log
+import android.webkit.WebResourceRequest
+import android.webkit.WebView
+import android.webkit.WebViewClient
+
 /**
- * Created by User on 10/14/2017.
+ * Created by omarmatthew on 10/14/2017.
+ * Custom WebViewClient to override URL loading
  */
-class CustomWebViewClient {
+class CustomWebViewClient : WebViewClient() {
+    override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+        Log.i("CustomWebViewClient", "request url ${request?.url}")
+        view?.loadUrl(request?.url.toString())
+        return true
+    }
 }

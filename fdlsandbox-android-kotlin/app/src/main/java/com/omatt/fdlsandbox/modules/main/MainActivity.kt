@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
@@ -13,6 +14,7 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import com.omatt.fdlsandbox.AppController
 import com.omatt.fdlsandbox.R
 import com.omatt.fdlsandbox.firebase.AnalyticsHelper
+import com.omatt.fdlsandbox.modules.webview.InAppBrowserActivity
 import javax.inject.Inject
 
 /**
@@ -89,6 +91,19 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         Log.i(TAG, "Generate FDL Clicked!")
         firebaseAnalytics.logEvent("generateFDL", AnalyticsHelper().logEventActionBuilder("btn_gen_fdl"))
         mainPresenter.buildDynamicLink(this)
+    }
+
+    @OnClick(R.id.btn_web_view)
+    fun openInAppBrowser(){
+        val intent = Intent(this, InAppBrowserActivity::class.java)
+        val shortFDL = textViewFDLShort.text.toString()
+        Log.i(TAG, "shortFDL $shortFDL txt_fdl_short ${getString(R.string.txt_fdl_short)}")
+        if (shortFDL != (getString(R.string.txt_fdl_short))) {
+            intent.putExtra("KEY_FDL", shortFDL)
+            startActivity(intent)
+        } else {
+            Toast.makeText(this, getString(R.string.txt_fdl_short_empty), Toast.LENGTH_SHORT).show()
+        }
     }
 
     /**
