@@ -5,13 +5,13 @@ apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.omatt.fdlsandbox"
         minSdkVersion 21
         targetSdkVersion 26
-        versionCode 1
-        versionName '0.1.1-alpha-kt'
+        versionCode 2
+        versionName '0.2.0-alpha-kt'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
