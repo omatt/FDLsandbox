@@ -1,4 +1,4 @@
-package com.omatt.fdlsandbox.modules
+package com.omatt.fdlsandbox.modules.deeplink
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

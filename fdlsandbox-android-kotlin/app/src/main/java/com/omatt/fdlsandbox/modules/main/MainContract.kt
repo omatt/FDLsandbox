@@ -1,4 +1,4 @@
-package com.omatt.fdlsandbox.modules
+package com.omatt.fdlsandbox.modules.main
 
 import android.app.Activity
 import android.content.Context

@@ -18,7 +18,7 @@ import butterknife.OnCheckedChanged;
  * Simulates an in-app browser
  */
 
-public class WebViewActivity extends AppCompatActivity {
+public class InAppBrowserActivity extends AppCompatActivity {
     private final String TAG = "WebViewActivity";
     private String dynamicLink;
     @BindView(R.id.webview)
@@ -27,7 +27,7 @@ public class WebViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_activity_web_view);
+        setContentView(R.layout.layout_activity_in_app_browser);
         ButterKnife.bind(this);
 
         Bundle bundle = getIntent().getExtras();

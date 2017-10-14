@@ -1,4 +1,4 @@
-package com.omatt.fdlsandbox.modules
+package com.omatt.fdlsandbox.modules.deeplink
 
 import android.content.Intent
 import android.util.Log
@@ -11,7 +11,7 @@ import java.lang.Exception
  * Created by omarmatthew on 9/16/2017.
  * DeepLinkActivity Presenter
  */
-class DeepLinkPresenter : DeepLinkContract.Presenter{
+class DeepLinkPresenter : DeepLinkContract.Presenter {
     private val TAG = "DeepLinkPresenter"
     lateinit var deepLinkView : DeepLinkContract.View
     override fun takeView(view: DeepLinkContract.View) {
