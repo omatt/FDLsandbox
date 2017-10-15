@@ -13,7 +13,7 @@ import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import com.omatt.fdlsandbox.R;
 import com.omatt.fdlsandbox.firebase.AnalyticsHelper;
 import com.omatt.fdlsandbox.AppController;
-import com.omatt.fdlsandbox.modules.webview.WebViewActivity;
+import com.omatt.fdlsandbox.modules.inappbrowser.InAppBrowserActivity;
 
 import javax.inject.Inject;
 
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @OnClick(R.id.btn_web_view)
     void openWebView(){
-        Intent intent = new Intent(this, WebViewActivity.class);
+        Intent intent = new Intent(this, InAppBrowserActivity.class);
         String shortFDL = textViewFDLShort.getText().toString();
         if (!shortFDL.equals(getString(R.string.txt_fdl_short))){
             intent.putExtra("KEY_FDL", shortFDL);

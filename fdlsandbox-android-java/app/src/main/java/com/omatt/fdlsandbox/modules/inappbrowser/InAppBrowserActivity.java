@@ -1,4 +1,4 @@
-package com.omatt.fdlsandbox.modules.webview;
+package com.omatt.fdlsandbox.modules.inappbrowser;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
