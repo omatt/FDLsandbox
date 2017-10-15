@@ -1,6 +1,6 @@
 package com.omatt.fdlsandbox.components
 
-import com.omatt.fdlsandbox.modules.webview.InAppBrowserPresenter
+import com.omatt.fdlsandbox.modules.inappbrowser.InAppBrowserPresenter
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

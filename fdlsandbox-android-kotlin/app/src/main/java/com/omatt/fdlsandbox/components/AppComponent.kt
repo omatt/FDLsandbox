@@ -3,7 +3,7 @@ package com.omatt.fdlsandbox.components
 import com.omatt.fdlsandbox.AppController
 import com.omatt.fdlsandbox.modules.deeplink.DeepLinkActivity
 import com.omatt.fdlsandbox.modules.main.MainActivity
-import com.omatt.fdlsandbox.modules.webview.InAppBrowserActivity
+import com.omatt.fdlsandbox.modules.inappbrowser.InAppBrowserActivity
 import dagger.Component
 import javax.inject.Singleton
 

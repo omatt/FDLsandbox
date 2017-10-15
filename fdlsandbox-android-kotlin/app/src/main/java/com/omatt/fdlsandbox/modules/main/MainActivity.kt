@@ -14,7 +14,7 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import com.omatt.fdlsandbox.AppController
 import com.omatt.fdlsandbox.R
 import com.omatt.fdlsandbox.firebase.AnalyticsHelper
-import com.omatt.fdlsandbox.modules.webview.InAppBrowserActivity
+import com.omatt.fdlsandbox.modules.inappbrowser.InAppBrowserActivity
 import javax.inject.Inject
 
 /**

@@ -1,11 +1,9 @@
-package com.omatt.fdlsandbox.modules.webview
+package com.omatt.fdlsandbox.modules.inappbrowser
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.webkit.WebViewClient
-import android.widget.CompoundButton
-import butterknife.OnCheckedChanged
 import com.omatt.fdlsandbox.AppController
 import com.omatt.fdlsandbox.R
 import kotlinx.android.synthetic.main.layout_activity_in_app_browser.*

@@ -1,4 +1,4 @@
-package com.omatt.fdlsandbox.modules.webview
+package com.omatt.fdlsandbox.modules.inappbrowser
 
 /**
  * Created by omarmatthew on 10/14/2017.

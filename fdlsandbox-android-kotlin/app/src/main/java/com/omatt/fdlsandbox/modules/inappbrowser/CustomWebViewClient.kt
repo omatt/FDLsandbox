@@ -1,4 +1,4 @@
-package com.omatt.fdlsandbox.modules.webview
+package com.omatt.fdlsandbox.modules.inappbrowser
 
 import android.util.Log
 import android.webkit.WebResourceRequest

@@ -1,6 +1,5 @@
-package com.omatt.fdlsandbox.modules.webview
+package com.omatt.fdlsandbox.modules.inappbrowser
 
-import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.omatt.fdlsandbox.BasePresenter
 import com.omatt.fdlsandbox.BaseView
