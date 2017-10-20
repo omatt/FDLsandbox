@@ -9,12 +9,14 @@ import android.widget.Toast
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
+import com.crashlytics.android.Crashlytics
 import com.google.android.gms.appinvite.AppInviteInvitation
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.omatt.fdlsandbox.AppController
 import com.omatt.fdlsandbox.R
 import com.omatt.fdlsandbox.firebase.AnalyticsHelper
 import com.omatt.fdlsandbox.modules.inappbrowser.InAppBrowserActivity
+import io.fabric.sdk.android.Fabric
 import javax.inject.Inject
 
 /**
@@ -45,6 +47,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         setContentView(R.layout.layout_activity_main)
         ButterKnife.bind(this)
         AppController.component.inject(this)
+        Fabric.with(this, Crashlytics())
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
@@ -104,6 +107,11 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         } else {
             Toast.makeText(this, getString(R.string.txt_fdl_short_empty), Toast.LENGTH_SHORT).show()
         }
+    }
+
+    @OnClick(R.id.btn_force_crash)
+    fun onClickCrash(){
+        mainPresenter.forceCrash(true)
     }
 
     /**

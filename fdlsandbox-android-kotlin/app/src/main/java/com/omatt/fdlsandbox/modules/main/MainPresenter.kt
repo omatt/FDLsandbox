@@ -6,7 +6,9 @@ import android.content.Intent
 import android.net.Uri
 import android.util.Log
 import android.widget.Toast
+import com.crashlytics.android.Crashlytics
 import com.google.firebase.appinvite.FirebaseAppInvite
+import com.google.firebase.crash.FirebaseCrash
 import com.google.firebase.dynamiclinks.DynamicLink
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks
 import com.google.firebase.dynamiclinks.PendingDynamicLinkData
@@ -22,7 +24,6 @@ import java.lang.Exception
  * MainActivity Presenter
  */
 class MainPresenter : MainContract.Presenter {
-
     private val TAG = "MainPresenter"
     lateinit var mainView: MainContract.View
 
@@ -130,4 +131,51 @@ class MainPresenter : MainContract.Presenter {
             Log.e(TAG, "dynamicLinkBuilder Error: $exception")
         })
     }
+
+    override fun forceCrash(catchCrash: Boolean) {
+        // Log that crash button was clicked. This version of Crash.log() will include the
+        // message in the crash report as well as show the message in logcat.
+        FirebaseCrash.logcat(Log.INFO, TAG, "Crash button clicked")
+
+        // If catchCrashCheckBox is checked catch the exception and report is using
+        // Crash.report(). Otherwise throw the exception and let Firebase Crash automatically
+        // report the crash.
+        if (catchCrash) {
+            try {
+                throw NullPointerException()
+            } catch (ex: NullPointerException) {
+                // Crash Reporting
+                // [START log_and_report]
+                FirebaseCrash.logcat(Log.ERROR, TAG, "NPE caught")
+                FirebaseCrash.log("User name: Juan dela Cruz")
+                FirebaseCrash.log("User email: juan.dela.cruz@email.com")
+                FirebaseCrash.log("My Exception in device details")
+                //                FirebaseCrash.report(ex);
+
+                val exception = Exception("${ex.message} - ${ex.cause}")
+                FirebaseCrash.report(exception)
+                // [END log_and_report]
+
+                // Crashlytics
+                Crashlytics.logException(exception)
+
+                Crashlytics.log(Log.ERROR, TAG, "Clicked Crash")
+                Crashlytics.setString("KEY_STRING", "Hello")
+                Crashlytics.setBool("KEY_BOOL", true)
+                Crashlytics.setDouble("KEY_DOUBLE", 4.5)
+                Crashlytics.setFloat("KEY_FLOAT", 4.5F)
+                Crashlytics.setInt("KEY_INT", 12)
+
+                Crashlytics.setUserName("Juan dela Cruz")
+                Crashlytics.setUserEmail("juan.dela.cruz@email.com")
+
+                Crashlytics.getInstance().crash()
+            }
+
+        } else throw NullPointerException()
+
+        // Force crash using Crashlytics
+//        Crashlytics.getInstance().crash()
+    }
+
 }

@@ -10,6 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="fe1712db37e918421ce2e7b4d53f9de2864197c3"
+            />
         <activity android:name=".modules.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
