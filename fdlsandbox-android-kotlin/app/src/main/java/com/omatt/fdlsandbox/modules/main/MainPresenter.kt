@@ -160,6 +160,8 @@ class MainPresenter : MainContract.Presenter {
                 Crashlytics.logException(exception)
 
                 Crashlytics.log(Log.ERROR, TAG, "Clicked Crash")
+                Crashlytics.setString("KEY_USER", "Juan dela Cruz")
+                Crashlytics.setString("KEY_EMAIL", "juan.dela.cruz@email.com")
                 Crashlytics.setString("KEY_STRING", "Hello")
                 Crashlytics.setBool("KEY_BOOL", true)
                 Crashlytics.setDouble("KEY_DOUBLE", 4.5)
