@@ -24,14 +24,6 @@
 
                 <data android:host="www.sample.com"/>
                 <data android:scheme="https"/>
-                <!--<data android:scheme="https"-->
-                    <!--android:host="www.konusarakogren.com"-->
-                    <!--android:pathPrefix="/sozluk"-->
-                    <!--/>-->
-                <!--<data android:scheme="http"-->
-                    <!--android:host="www.konusarakogren.com"-->
-                    <!--android:pathPrefix="/sozluk"-->
-                    <!--/>-->
             </intent-filter>
         </activity>
         <activity
@@ -51,7 +43,6 @@
             </intent-filter>
             <!-- [END deep_link_filter] -->
         </activity>
-        <activity android:name=".modules.inappbrowser.WebViewActivity" />
         <activity android:name=".modules.inappbrowser.InAppBrowserActivity" />
     </application>
 

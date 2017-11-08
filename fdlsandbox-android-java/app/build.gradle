@@ -1,14 +1,23 @@
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
 
 android {
+    signingConfigs {
+        key {
+            keyAlias 'release'
+            keyPassword 'password123!'
+            storeFile file('/usr/local/google/home/omarmatthew/AndroidStudioProjects/google_tvc_acn_reyes_omarmatthew.jks')
+            storePassword 'password123!'
+        }
+    }
     compileSdkVersion 26
     buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.omatt.fdlsandbox"
         minSdkVersion 21
         targetSdkVersion 26
-        versionCode 11
-        versionName '0.2.0-alpha'
+        versionCode 12
+        versionName '0.2.1-alpha'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -17,12 +26,14 @@ android {
             minifyEnabled true  // enables obsfucation
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.key
+            proguardFile '/usr/local/google/home/omarmatthew/AndroidStudioProjects/FDLSandbox/fdlsandbox-android-java/app/proguard-rules.pro'
         }
         debug {
             minifyEnabled true
             useProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.key
+            proguardFile '/usr/local/google/home/omarmatthew/AndroidStudioProjects/FDLSandbox/fdlsandbox-android-java/app/proguard-rules.pro'
         }
     }
     compileOptions {
@@ -44,6 +55,11 @@ dependencies {
     implementation "com.google.firebase:firebase-core:$rootProject.firebaseVersion"
     implementation "com.google.firebase:firebase-invites:$rootProject.firebaseVersion"
     implementation "com.google.firebase:firebase-crash:$rootProject.firebaseVersion"
+    // Crashlytics
+    compile('com.crashlytics.sdk.android:crashlytics:2.7.1@aar') {
+        transitive = true
+    }
+
     // Dagger
     implementation "com.google.dagger:dagger:$rootProject.daggerVersion"
     annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.daggerVersion"

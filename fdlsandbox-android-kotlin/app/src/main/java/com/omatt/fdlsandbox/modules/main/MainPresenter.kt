@@ -135,7 +135,7 @@ class MainPresenter : MainContract.Presenter {
     override fun forceCrash(catchCrash: Boolean) {
         // Log that crash button was clicked. This version of Crash.log() will include the
         // message in the crash report as well as show the message in logcat.
-        FirebaseCrash.logcat(Log.INFO, TAG, "Crash button clicked")
+//        FirebaseCrash.logcat(Log.INFO, TAG, "Crash button clicked")
 
         // If catchCrashCheckBox is checked catch the exception and report is using
         // Crash.report(). Otherwise throw the exception and let Firebase Crash automatically
@@ -144,6 +144,8 @@ class MainPresenter : MainContract.Presenter {
             try {
                 throw NullPointerException()
             } catch (ex: NullPointerException) {
+                val exception = Exception("${ex.message} - ${ex.cause}")
+
                 // Crash Reporting
                 // [START log_and_report]
                 FirebaseCrash.logcat(Log.ERROR, TAG, "NPE caught")
@@ -152,7 +154,6 @@ class MainPresenter : MainContract.Presenter {
                 FirebaseCrash.log("My Exception in device details")
                 //                FirebaseCrash.report(ex);
 
-                val exception = Exception("${ex.message} - ${ex.cause}")
                 FirebaseCrash.report(exception)
                 // [END log_and_report]
 
