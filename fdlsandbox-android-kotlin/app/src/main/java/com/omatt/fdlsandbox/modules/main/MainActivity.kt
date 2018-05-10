@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import butterknife.BindView
 import butterknife.ButterKnife
+import butterknife.OnCheckedChanged
 import butterknife.OnClick
 import com.crashlytics.android.Crashlytics
 import com.google.android.gms.appinvite.AppInviteInvitation
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
      */
     @Inject
     lateinit var mainPresenter: MainPresenter
-    @Inject
+
     lateinit var firebaseAnalytics: FirebaseAnalytics
 
     @BindView(R.id.textView_fdl_long)
@@ -42,12 +43,16 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     @BindView(R.id.textView_fdl_short)
     lateinit var textViewFDLShort: TextView
 
+    var catchCrash = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_activity_main)
         ButterKnife.bind(this)
         AppController.component.inject(this)
         Fabric.with(this, Crashlytics())
+
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
@@ -111,7 +116,13 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
     @OnClick(R.id.btn_force_crash)
     fun onClickCrash(){
-        mainPresenter.forceCrash(true)
+        mainPresenter.forceCrash(catchCrash)
+    }
+
+    @OnCheckedChanged(R.id.switch_catch_crash)
+    fun onSwitchChanged(checked : Boolean){
+        Log.i(TAG, "switch $checked")
+        catchCrash = checked
     }
 
     /**
