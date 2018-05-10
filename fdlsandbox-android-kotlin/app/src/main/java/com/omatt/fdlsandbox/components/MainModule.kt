@@ -17,7 +17,8 @@ class MainModule {
     @Singleton
     fun provideMainPresenter() = MainPresenter()
 
-    @Provides
-    @Singleton
-    fun provideFirebaseAnalytics() = FirebaseAnalytics.getInstance(AppController.instance)
+    // Moved to MainActivity. FirebaseAnalytics.getInstance now gets error on AppController.instance for Application Context
+//    @Provides
+//    @Singleton
+//    fun provideFirebaseAnalytics() = FirebaseAnalytics.getInstance(AppController.instance)
 }
