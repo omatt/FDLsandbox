@@ -11,6 +11,6 @@ Now ported to Kotlin :wink:
 * crashlytics ([Crashlytics](https://firebase.google.com/docs/crashlytics/get-started))
 * [dagger](http://square.github.io/dagger/)
 * [butterknife](http://jakewharton.github.io/butterknife/)
-* ~~firebase-crash ([Crash Reporting(https://firebase.google.com/docs/crash/android))~~ - deprecated
+* ~~[firebase-crash](https://firebase.google.com/docs/crash/android)~~ - deprecated
 * ~~[rxandroid](https://github.com/ReactiveX/RxAndroid)~~
 * ~~[rxjava](https://github.com/ReactiveX/RxJava)~~
