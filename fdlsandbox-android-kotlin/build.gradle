@@ -11,9 +11,9 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.2'
+        classpath 'com.android.tools.build:gradle:3.1.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.google.gms:google-services:3.3.1'
+        classpath 'com.google.gms:google-services:4.0.2'
 
         classpath "io.fabric.tools:gradle:$fabric_version" // Crashlytics
 
@@ -41,8 +41,8 @@ task clean(type: Delete) {
 ext{
     // Sdk and tools
     minSdkVersion = 21
-    targetSdkVersion = 27
-    compileSdkVersion = 27
+    targetSdkVersion = 28
+    compileSdkVersion = 28
     buildToolsVersion = '27.0.2'
 
     // App dependencies

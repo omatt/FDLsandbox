@@ -50,9 +50,12 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         setContentView(R.layout.layout_activity_main)
         ButterKnife.bind(this)
         AppController.component.inject(this)
-        Fabric.with(this, Crashlytics())
+//        Fabric.with(this, Crashlytics())
 
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
+
+
+        Thread.setDefaultUncaughtExceptionHandler(handleAppCrash)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
@@ -140,4 +143,15 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         textViewFDLShort.text = link
 //        textView_fdl_short.text = link
     }
+
+    /***
+     * @Purpose Called when any crash occurs in the application.
+     */
+    private val handleAppCrash = Thread.UncaughtExceptionHandler { thread, ex ->
+        val intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
+        System.exit(0)
+    }
+
 }
