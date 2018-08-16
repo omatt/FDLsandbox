@@ -1,6 +1,7 @@
 package com.omatt.fdlsandbox.modules.main
 
 import android.content.Intent
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -18,6 +19,7 @@ import com.omatt.fdlsandbox.R
 import com.omatt.fdlsandbox.firebase.AnalyticsHelper
 import com.omatt.fdlsandbox.modules.inappbrowser.InAppBrowserActivity
 import io.fabric.sdk.android.Fabric
+import java.util.regex.Pattern
 import javax.inject.Inject
 
 /**
@@ -89,6 +91,18 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         mainPresenter.dropView()
         super.onDestroy()
     }
+
+    @OnClick(R.id.textView_fdl_short)
+    fun openLink(){
+        if(Pattern.compile("^(http|https)://").matcher(textViewFDLShort.text.toString()).find()){
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(textViewFDLShort.text.toString())
+            startActivity(intent)
+        } else {
+            Log.i(TAG, "No FDL found + ${textViewFDLShort.text}")
+        }
+    }
+
 
     @OnClick(R.id.btn_app_invite_send)
     fun sendAppInvite() {
