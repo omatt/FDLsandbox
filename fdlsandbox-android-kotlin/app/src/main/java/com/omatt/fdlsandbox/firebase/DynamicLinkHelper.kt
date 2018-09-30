@@ -24,7 +24,6 @@ class DynamicLinkHelper {
                 .setDynamicLinkDomain(context.getString(R.string.dynamic_link_domain))
                 // Open links with this app on Android
                 .setAndroidParameters(DynamicLink.AndroidParameters.Builder(context.packageName).setMinimumVersion(1).build())
-                .setNavigationInfoParameters(DynamicLink.NavigationInfoParameters.Builder().setForcedRedirectEnabled(true).build())
                 .setSocialMetaTagParameters(DynamicLink.SocialMetaTagParameters.Builder()
                         .setTitle("Title")
                         .setImageUrl(Uri.parse(context.getString(R.string.invitation_custom_image)))

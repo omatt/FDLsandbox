@@ -1,7 +1,6 @@
 package com.omatt.fdlsandbox.modules.main
 
 import android.content.Intent
-import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,7 +8,6 @@ import android.widget.TextView
 import android.widget.Toast
 import butterknife.BindView
 import butterknife.ButterKnife
-import butterknife.OnCheckedChanged
 import butterknife.OnClick
 import com.crashlytics.android.Crashlytics
 import com.google.android.gms.appinvite.AppInviteInvitation
@@ -19,7 +17,6 @@ import com.omatt.fdlsandbox.R
 import com.omatt.fdlsandbox.firebase.AnalyticsHelper
 import com.omatt.fdlsandbox.modules.inappbrowser.InAppBrowserActivity
 import io.fabric.sdk.android.Fabric
-import java.util.regex.Pattern
 import javax.inject.Inject
 
 /**
@@ -45,19 +42,14 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     @BindView(R.id.textView_fdl_short)
     lateinit var textViewFDLShort: TextView
 
-    var catchCrash = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_activity_main)
         ButterKnife.bind(this)
         AppController.component.inject(this)
-//        Fabric.with(this, Crashlytics())
+        Fabric.with(this, Crashlytics())
 
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
-
-
-        Thread.setDefaultUncaughtExceptionHandler(handleAppCrash)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
@@ -92,18 +84,6 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         super.onDestroy()
     }
 
-    @OnClick(R.id.textView_fdl_short)
-    fun openLink(){
-        if(Pattern.compile("^(http|https)://").matcher(textViewFDLShort.text.toString()).find()){
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse(textViewFDLShort.text.toString())
-            startActivity(intent)
-        } else {
-            Log.i(TAG, "No FDL found + ${textViewFDLShort.text}")
-        }
-    }
-
-
     @OnClick(R.id.btn_app_invite_send)
     fun sendAppInvite() {
         Log.i(TAG, "Send App Invite Clicked!")
@@ -133,13 +113,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
     @OnClick(R.id.btn_force_crash)
     fun onClickCrash(){
-        mainPresenter.forceCrash(catchCrash)
-    }
-
-    @OnCheckedChanged(R.id.switch_catch_crash)
-    fun onSwitchChanged(checked : Boolean){
-        Log.i(TAG, "switch $checked")
-        catchCrash = checked
+        mainPresenter.forceCrash(true)
     }
 
     /**
@@ -157,15 +131,4 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         textViewFDLShort.text = link
 //        textView_fdl_short.text = link
     }
-
-    /***
-     * @Purpose Called when any crash occurs in the application.
-     */
-    private val handleAppCrash = Thread.UncaughtExceptionHandler { thread, ex ->
-        val intent = Intent(this, MainActivity::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        startActivity(intent)
-        System.exit(0)
-    }
-
 }

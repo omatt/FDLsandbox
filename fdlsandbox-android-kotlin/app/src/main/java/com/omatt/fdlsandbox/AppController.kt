@@ -15,7 +15,8 @@ class AppController : Application() {
 
     companion object {
         //platformStatic allow access it from java code
-        @JvmStatic lateinit var component: AppComponent
+        @JvmStatic
+        lateinit var component: AppComponent
         @JvmStatic
         var instance: AppController? = null
     }

@@ -1,7 +1,5 @@
 package com.omatt.fdlsandbox.components
 
-import com.google.firebase.analytics.FirebaseAnalytics
-import com.omatt.fdlsandbox.AppController
 import com.omatt.fdlsandbox.modules.main.MainPresenter
 import dagger.Module
 import dagger.Provides
@@ -13,11 +11,12 @@ import javax.inject.Singleton
  */
 @Module
 class MainModule {
+
     @Provides
     @Singleton
     fun provideMainPresenter() = MainPresenter()
 
-    // Moved to MainActivity. FirebaseAnalytics.getInstance now gets error on AppController.instance for Application Context
+    // Moved initialization to MainActivity as AppController.instance gets errors
 //    @Provides
 //    @Singleton
 //    fun provideFirebaseAnalytics() = FirebaseAnalytics.getInstance(AppController.instance)

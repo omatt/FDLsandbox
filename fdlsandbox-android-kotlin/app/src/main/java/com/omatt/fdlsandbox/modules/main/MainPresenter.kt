@@ -7,8 +7,6 @@ import android.net.Uri
 import android.util.Log
 import android.widget.Toast
 import com.crashlytics.android.Crashlytics
-import com.google.firebase.appinvite.FirebaseAppInvite
-import com.google.firebase.crash.FirebaseCrash
 import com.google.firebase.dynamiclinks.DynamicLink
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks
 import com.google.firebase.dynamiclinks.PendingDynamicLinkData
@@ -47,24 +45,20 @@ class MainPresenter : MainContract.Presenter {
         val link = activity.getString(R.string.deep_link) + "?customId=" + "sampleCustomId"
         FirebaseDynamicLinks.getInstance().createDynamicLink()
                 .setLink(Uri.parse(link))
-                .setDynamicLinkDomain(activity.getString(R.string.dynamic_link_domain))
-                .setAndroidParameters(
-                        DynamicLink.AndroidParameters.Builder(activity.packageName)
-                                .setMinimumVersion(8)
-                                .build())
+                .setDomainUriPrefix(activity.getString(R.string.dynamic_link_domain))
                 .setIosParameters(
                         DynamicLink.IosParameters.Builder("com.example.ios")
-                                .setAppStoreId("123456789")
+                                .setAppStoreId("544007664")
                                 .setMinimumVersion("1.0.1")
                                 .build())
                 .buildShortDynamicLink()
-                .addOnSuccessListener({ shortDynamicLink: ShortDynamicLink? ->
+                .addOnSuccessListener { shortDynamicLink: ShortDynamicLink? ->
                     if (shortDynamicLink != null) {
                         Log.i(TAG, "sendAppInvite shortLink: ${shortDynamicLink.shortLink}")
                         Log.i(TAG, "sendAppInvite debug link: ${shortDynamicLink.previewLink}")
                         activity.startActivityForResult(AppInviteHelper().appInviteTemplate(activity, shortDynamicLink.shortLink.toString()), resultCode)
                     }
-                })
+                }
 
     }
 
@@ -73,7 +67,7 @@ class MainPresenter : MainContract.Presenter {
      * @param intent Intent
      */
     override fun processDeepLink(intent: Intent) {
-        FirebaseDynamicLinks.getInstance().getDynamicLink(intent).addOnSuccessListener({ pendingDynamicLinkData: PendingDynamicLinkData? ->
+        FirebaseDynamicLinks.getInstance().getDynamicLink(intent).addOnSuccessListener { pendingDynamicLinkData: PendingDynamicLinkData? ->
             if (pendingDynamicLinkData == null) {
                 Log.w(TAG, "No deep link found")
                 return@addOnSuccessListener
@@ -85,10 +79,10 @@ class MainPresenter : MainContract.Presenter {
             Toast.makeText(AppController.instance, "Deep Link received: $deepLink", Toast.LENGTH_SHORT).show()
 
             // Get inviteId
-            val invite = FirebaseAppInvite.getInvitation(pendingDynamicLinkData)
-            val invitationId: String = invite.invitationId
-            Log.i(TAG, "Invitation ID: $invitationId")
-            Toast.makeText(AppController.instance, "Invitation ID: $invitationId", Toast.LENGTH_SHORT).show()
+//            val invite = FirebaseAppInvite.getInvitation(pendingDynamicLinkData)
+//            val invitationId: String = invite.invitationId
+//            Log.i(TAG, "Invitation ID: $invitationId")
+//            Toast.makeText(AppController.instance, "Invitation ID: $invitationId", Toast.LENGTH_SHORT).show()
 
             // Multiple custom parameters
             if (deepLink.getBooleanQueryParameter("userId", true))
@@ -97,9 +91,9 @@ class MainPresenter : MainContract.Presenter {
                 Log.i(TAG, "setLng: " + deepLink.getQueryParameter("setLng"))
             if (deepLink.getBooleanQueryParameter("customId", true))
                 Log.i(TAG, "customId: " + deepLink.getQueryParameter("customId"))
-        }).addOnFailureListener({ exception: Exception ->
+        }.addOnFailureListener { exception: Exception ->
             Toast.makeText(AppController.instance, "Dynamic Link failure: $exception", Toast.LENGTH_SHORT).show()
-        })
+        }
     }
 
     /**
@@ -113,13 +107,13 @@ class MainPresenter : MainContract.Presenter {
         mainView.updateDynamicLinkLong(longFDL)
         Log.i(TAG, "dynamicLinkBuilder long FDL: $longFDL")
         fdlBuilder.buildShortDynamicLink()
-                .addOnCompleteListener({ task ->
+                .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         Log.i(TAG, "dynamicLinkBuilder success short FDL ${task.result.shortLink}")
                         Log.i(TAG, "dynamicLinkBuilder success preview FDL ${task.result.previewLink}")
                     } else Log.e(TAG, "dynamicLinkBuilder failed")
-                })
-                .addOnSuccessListener({ shortDynamicLink: ShortDynamicLink? ->
+                }
+                .addOnSuccessListener { shortDynamicLink: ShortDynamicLink? ->
                     if (shortDynamicLink != null) {
                         val shortLink = shortDynamicLink.shortLink.toString()
                         val debugLink = shortDynamicLink.previewLink.toString()
@@ -127,9 +121,9 @@ class MainPresenter : MainContract.Presenter {
                         Log.i(TAG, "dynamicLinkBuilder short FDL: $shortLink")
                         Log.i(TAG, "dynamicLinkBuilder preview FDL: $debugLink")
                     }
-                }).addOnFailureListener({ exception: Exception ->
-            Log.e(TAG, "dynamicLinkBuilder Error: $exception")
-        })
+                }.addOnFailureListener { exception: Exception ->
+                    Log.e(TAG, "dynamicLinkBuilder Error: $exception")
+                }
     }
 
     override fun forceCrash(catchCrash: Boolean) {
@@ -145,17 +139,6 @@ class MainPresenter : MainContract.Presenter {
                 throw NullPointerException()
             } catch (ex: NullPointerException) {
                 val exception = Exception("${ex.message} - ${ex.cause}")
-
-                // Crash Reporting
-                // [START log_and_report]
-                FirebaseCrash.logcat(Log.ERROR, TAG, "NPE caught")
-                FirebaseCrash.log("User name: Juan dela Cruz")
-                FirebaseCrash.log("User email: juan.dela.cruz@email.com")
-                FirebaseCrash.log("My Exception in device details")
-                //                FirebaseCrash.report(ex);
-
-                FirebaseCrash.report(exception)
-                // [END log_and_report]
 
                 // Crashlytics
                 Crashlytics.logException(exception)
@@ -176,9 +159,5 @@ class MainPresenter : MainContract.Presenter {
             }
 
         } else throw NullPointerException()
-
-        // Force crash using Crashlytics
-//        Crashlytics.getInstance().crash()
     }
-
 }
