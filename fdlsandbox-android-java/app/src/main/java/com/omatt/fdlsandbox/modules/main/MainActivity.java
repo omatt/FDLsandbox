@@ -7,12 +7,14 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.appinvite.AppInviteInvitation;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import com.omatt.fdlsandbox.R;
 import com.omatt.fdlsandbox.firebase.AnalyticsHelper;
 import com.omatt.fdlsandbox.AppController;
+import com.omatt.fdlsandbox.modules.deeplink.DeepLinkActivity;
 import com.omatt.fdlsandbox.modules.inappbrowser.InAppBrowserActivity;
 
 import javax.inject.Inject;
@@ -21,6 +23,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
+import io.fabric.sdk.android.Fabric;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View{
     private final String TAG = "MainActivity";
@@ -84,6 +87,15 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         ButterKnife.bind(this);
         AppController.getComponent(this).inject(this);
         FirebaseAnalytics.getInstance(this);
+
+        final Fabric fabric = new Fabric.Builder(this)
+                .kits(new Crashlytics())
+                .debuggable(true)           // Enables Crashlytics debugger
+                .build();
+        Fabric.with(fabric);
+
+
+        Thread.setDefaultUncaughtExceptionHandler(handleAppCrash);
     }
 
     @Override
@@ -135,4 +147,14 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     public void updateDynamicLinkShort(String link) {
         textViewFDLShort.setText(link);
     }
+
+    /***
+     * @Purpose Called when any crash occurs in the application.
+     ***/
+    private Thread.UncaughtExceptionHandler handleAppCrash = (thread, ex) -> {
+        Intent intent = new Intent(getBaseContext(), MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        System.exit(0);
+    };
 }

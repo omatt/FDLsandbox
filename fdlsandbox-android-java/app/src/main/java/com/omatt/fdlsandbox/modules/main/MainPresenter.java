@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.crashlytics.android.Crashlytics;
 import com.google.firebase.appinvite.FirebaseAppInvite;
 import com.google.firebase.crash.FirebaseCrash;
 import com.google.firebase.dynamiclinks.DynamicLink;
@@ -111,22 +112,31 @@ public class MainPresenter implements MainContract.Presenter{
     public void forceCrash(boolean catchCrash) {
         // Log that crash button was clicked. This version of Crash.log() will include the
         // message in the crash report as well as show the message in logcat.
-        FirebaseCrash.logcat(Log.INFO, TAG, "Crash button clicked");
+//        FirebaseCrash.logcat(Log.INFO, TAG, "Crash button clicked");
 
         // If catchCrashCheckBox is checked catch the exception and report is using
         // Crash.report(). Otherwise throw the exception and let Firebase Crash automatically
         // report the crash.
+//        if(catchCrash) {
+//            try {
+//                throw new NullPointerException();
+//            } catch (NullPointerException ex) {
+//                // [START log_and_report]
+//                FirebaseCrash.logcat(Log.ERROR, TAG, "NPE caught");
+//                FirebaseCrash.log("My Exception in device details");
+////                FirebaseCrash.report(ex);
+//                FirebaseCrash.report(new Exception(ex.getMessage()+" - "+ex.getCause()));
+//                // [END log_and_report]
+//            }
+//        } else throw new NullPointerException();
+
         if(catchCrash) {
             try {
-                throw new NullPointerException();
-            } catch (NullPointerException ex) {
-                // [START log_and_report]
-                FirebaseCrash.logcat(Log.ERROR, TAG, "NPE caught");
-                FirebaseCrash.log("My Exception in device details");
-//                FirebaseCrash.report(ex);
-                FirebaseCrash.report(new Exception(ex.getMessage()+" - "+ex.getCause()));
-                // [END log_and_report]
+                Log.e(TAG, "Can you do this? " + 1/0);
+            } catch (Exception ex) {
+                // Crashlytics
+                Crashlytics.logException(ex);
             }
-        } else throw new NullPointerException();
+        } else Log.e(TAG, "Can you do this exp? " + 1/0);
     }
 }
