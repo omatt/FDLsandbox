@@ -7,10 +7,6 @@ apply plugin: 'io.fabric'
 android {
     signingConfigs {
         debug {
-            keyAlias 'release'
-            keyPassword 'password123!'
-            storeFile file('/Users/omarmatthew/Downloads/dev/android/google_tvc_acn_reyes_omarmatthew.jks')
-            storePassword 'password123!'
         }
         config {
         }
