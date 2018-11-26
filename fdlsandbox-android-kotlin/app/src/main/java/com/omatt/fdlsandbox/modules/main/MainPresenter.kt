@@ -138,6 +138,7 @@ class MainPresenter : MainContract.Presenter {
             try {
                 throw NullPointerException()
             } catch (ex: NullPointerException) {
+                Log.e(TAG, "Exception catched! ${ex.message}")
                 val exception = Exception("${ex.message} - ${ex.cause}")
 
                 // Crashlytics
@@ -155,7 +156,7 @@ class MainPresenter : MainContract.Presenter {
                 Crashlytics.setUserName("Juan dela Cruz")
                 Crashlytics.setUserEmail("juan.dela.cruz@email.com")
 
-                Crashlytics.getInstance().crash()
+//                Crashlytics.getInstance().crash()
             }
 
         } else throw NullPointerException()

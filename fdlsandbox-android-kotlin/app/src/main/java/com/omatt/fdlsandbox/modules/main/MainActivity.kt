@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import butterknife.BindView
 import butterknife.ButterKnife
+import butterknife.OnCheckedChanged
 import butterknife.OnClick
 import com.crashlytics.android.Crashlytics
 import com.google.android.gms.appinvite.AppInviteInvitation
@@ -27,6 +28,7 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity(), MainContract.View {
     private val TAG = "MainActivity"
     private val REQUEST_INVITE = 0
+    var catchCrash = false
 
     /**
      * lateinit - Late-initialized Properties
@@ -113,7 +115,14 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
     @OnClick(R.id.btn_force_crash)
     fun onClickCrash(){
-        mainPresenter.forceCrash(true)
+        Log.i(TAG, "Clicked Crash; catch? $catchCrash")
+        mainPresenter.forceCrash(catchCrash)
+    }
+
+    @OnCheckedChanged(R.id.switch_catch_crash)
+    fun onSwitchChanged(checked : Boolean){
+        Log.i(TAG, "switch $checked")
+        catchCrash = checked
     }
 
     /**
