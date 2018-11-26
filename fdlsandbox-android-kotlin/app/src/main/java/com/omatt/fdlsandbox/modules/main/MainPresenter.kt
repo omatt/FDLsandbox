@@ -43,22 +43,24 @@ class MainPresenter : MainContract.Presenter {
 
     override fun sendAppInvite(activity: Activity, resultCode: Int) {
         val link = activity.getString(R.string.deep_link) + "?customId=" + "sampleCustomId"
-        FirebaseDynamicLinks.getInstance().createDynamicLink()
-                .setLink(Uri.parse(link))
-                .setDomainUriPrefix(activity.getString(R.string.dynamic_link_domain))
-                .setIosParameters(
-                        DynamicLink.IosParameters.Builder("com.example.ios")
-                                .setAppStoreId("544007664")
-                                .setMinimumVersion("1.0.1")
-                                .build())
-                .buildShortDynamicLink()
-                .addOnSuccessListener { shortDynamicLink: ShortDynamicLink? ->
-                    if (shortDynamicLink != null) {
-                        Log.i(TAG, "sendAppInvite shortLink: ${shortDynamicLink.shortLink}")
-                        Log.i(TAG, "sendAppInvite debug link: ${shortDynamicLink.previewLink}")
-                        activity.startActivityForResult(AppInviteHelper().appInviteTemplate(activity, shortDynamicLink.shortLink.toString()), resultCode)
-                    }
-                }
+        activity.startActivityForResult(AppInviteHelper().appInviteTemplate(activity, link), resultCode)
+//        FirebaseDynamicLinks.getInstance().createDynamicLink()
+//                .setLink(Uri.parse(link))
+//                .setDomainUriPrefix(activity.getString(R.string.dynamic_link_domain))
+//                .setIosParameters(
+//                        DynamicLink.IosParameters.Builder("com.example.ios")
+//                                .setAppStoreId("544007664")
+//                                .setMinimumVersion("1.0.1")
+//                                .build())
+//                .buildShortDynamicLink()
+//                .addOnSuccessListener { shortDynamicLink: ShortDynamicLink? ->
+//                    if (shortDynamicLink != null) {
+//                        Log.i(TAG, "sendAppInvite shortLink: ${shortDynamicLink.shortLink}")
+//                        Log.i(TAG, "sendAppInvite debug link: ${shortDynamicLink.previewLink}")
+//                        activity.startActivityForResult(AppInviteHelper().appInviteTemplate(activity, link), resultCode)
+////                        activity.startActivityForResult(AppInviteHelper().appInviteTemplate(activity, shortDynamicLink.shortLink.toString()), resultCode)?
+//                    }
+//                }
 
     }
 
@@ -109,8 +111,8 @@ class MainPresenter : MainContract.Presenter {
         fdlBuilder.buildShortDynamicLink()
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Log.i(TAG, "dynamicLinkBuilder success short FDL ${task.result.shortLink}")
-                        Log.i(TAG, "dynamicLinkBuilder success preview FDL ${task.result.previewLink}")
+                        Log.i(TAG, "dynamicLinkBuilder success short FDL ${task.result?.shortLink}")
+                        Log.i(TAG, "dynamicLinkBuilder success preview FDL ${task.result?.previewLink}")
                     } else Log.e(TAG, "dynamicLinkBuilder failed")
                 }
                 .addOnSuccessListener { shortDynamicLink: ShortDynamicLink? ->

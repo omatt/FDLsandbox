@@ -1,5 +1,6 @@
 package com.omatt.fdlsandbox.modules.main
 
+import android.app.Activity
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -54,18 +55,19 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == REQUEST_INVITE) {
-            if (resultCode == RESULT_OK) {
-                // Get the invitation IDs of all sent messages
-                val ids = AppInviteInvitation.getInvitationIds(resultCode, data)
-                for (id in ids) {
-                    Log.d(TAG, "onActivityResult: sent invitation " + id)
-                }
-            } else // Sending failed or it was canceled, show failure message to the user
-                Log.e(TAG, "onActivityResult: Sending Invite Failed")
-        }
+        if (resultCode != Activity.RESULT_CANCELED && data != null)
+            if (requestCode == REQUEST_INVITE) {
+                if (resultCode == RESULT_OK) {
+                    // Get the invitation IDs of all sent messages
+                    val ids = AppInviteInvitation.getInvitationIds(resultCode, data)
+                    for (id in ids) {
+                        Log.d(TAG, "onActivityResult: sent invitation $id")
+                    }
+                } else // Sending failed or it was canceled, show failure message to the user
+                    Log.e(TAG, "onActivityResult: Sending Invite Failed")
+            }
     }
 
     /**
@@ -101,7 +103,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     }
 
     @OnClick(R.id.btn_web_view)
-    fun openInAppBrowser(){
+    fun openInAppBrowser() {
         val intent = Intent(this, InAppBrowserActivity::class.java)
         val shortFDL = textViewFDLShort.text.toString()
         Log.i(TAG, "shortFDL $shortFDL txt_fdl_short ${getString(R.string.txt_fdl_short)}")
@@ -114,13 +116,13 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     }
 
     @OnClick(R.id.btn_force_crash)
-    fun onClickCrash(){
+    fun onClickCrash() {
         Log.i(TAG, "Clicked Crash; catch? $catchCrash")
         mainPresenter.forceCrash(catchCrash)
     }
 
     @OnCheckedChanged(R.id.switch_catch_crash)
-    fun onSwitchChanged(checked : Boolean){
+    fun onSwitchChanged(checked: Boolean) {
         Log.i(TAG, "switch $checked")
         catchCrash = checked
     }
