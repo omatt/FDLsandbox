@@ -19,7 +19,7 @@ interface MainContract {
     interface Presenter : BasePresenter<View> {
         fun sendAppInvite(activity: Activity, resultCode : Int)
         fun processDeepLink(intent: Intent)
-        fun buildDynamicLink(context: Context)
+        fun buildDynamicLink(context: Context, buildDynamicLink: Boolean)
         fun forceCrash(catchCrash: Boolean)
     }
 }

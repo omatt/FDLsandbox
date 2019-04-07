@@ -17,6 +17,9 @@ class AppInviteHelper {
      * @return Intent
      */
     fun appInviteTemplate(context : Context, deepLink : String) : Intent {
+//        return AppInviteInvitation.IntentBuilder(context.getString(R.string.invitation_title))
+//                .setDeepLink(Uri.parse(deepLink))
+//                .build()
         return AppInviteInvitation.IntentBuilder(context.getString(R.string.invitation_title))
                 .setMessage(context.getString(R.string.invitation_message))
                 .setDeepLink(Uri.parse(deepLink))

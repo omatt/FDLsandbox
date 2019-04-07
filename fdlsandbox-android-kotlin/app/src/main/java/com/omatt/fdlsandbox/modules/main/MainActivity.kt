@@ -16,6 +16,7 @@ import com.crashlytics.android.core.CrashlyticsCore
 import com.google.android.gms.appinvite.AppInviteInvitation
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.omatt.fdlsandbox.AppController
+import com.omatt.fdlsandbox.BuildConfig
 import com.omatt.fdlsandbox.R
 import com.omatt.fdlsandbox.firebase.AnalyticsHelper
 import com.omatt.fdlsandbox.modules.inappbrowser.InAppBrowserActivity
@@ -51,10 +52,6 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         setContentView(R.layout.layout_activity_main)
         ButterKnife.bind(this)
         AppController.component.inject(this)
-        val crashlyticsCore = CrashlyticsCore.Builder()
-                .disabled(true)
-                .build()
-        Fabric.with(this, crashlyticsCore)
 
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
     }
@@ -103,7 +100,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     fun generateFDL() {
         Log.i(TAG, "Generate FDL Clicked!")
         firebaseAnalytics.logEvent("generateFDL", AnalyticsHelper().logEventActionBuilder("btn_gen_fdl"))
-        mainPresenter.buildDynamicLink(this)
+        mainPresenter.buildDynamicLink(this, false)
     }
 
     @OnClick(R.id.btn_web_view)

@@ -43,7 +43,13 @@ class MainPresenter : MainContract.Presenter {
 
     override fun sendAppInvite(activity: Activity, resultCode: Int) {
         val link = activity.getString(R.string.deep_link) + "?customId=" + "sampleCustomId"
-        activity.startActivityForResult(AppInviteHelper().appInviteTemplate(activity, link), resultCode)
+
+        /** Send invite via Firebase App Invites **/
+//        activity.startActivityForResult(AppInviteHelper().appInviteTemplate(activity, link), resultCode)
+
+        /** Send invite via Firebase Dynamic Links **/
+        buildDynamicLink(activity, true)
+
 //        FirebaseDynamicLinks.getInstance().createDynamicLink()
 //                .setLink(Uri.parse(link))
 //                .setDomainUriPrefix(activity.getString(R.string.dynamic_link_domain))
@@ -70,6 +76,7 @@ class MainPresenter : MainContract.Presenter {
      */
     override fun processDeepLink(intent: Intent) {
         FirebaseDynamicLinks.getInstance().getDynamicLink(intent).addOnSuccessListener { pendingDynamicLinkData: PendingDynamicLinkData? ->
+            Log.i(TAG, "Pending Dynamic Link data: $intent.get")
             if (pendingDynamicLinkData == null) {
                 Log.w(TAG, "No deep link found")
                 return@addOnSuccessListener
@@ -102,7 +109,7 @@ class MainPresenter : MainContract.Presenter {
      * Build long and short dynamic links
      * @param context Context
      */
-    override fun buildDynamicLink(context: Context) {
+    override fun buildDynamicLink(context: Context, appInvite: Boolean) {
         val fdlBuilder = DynamicLinkHelper().dynamicLinkBuilderTest(context)
         val longFDL = fdlBuilder.buildDynamicLink().uri.toString()
 
@@ -122,6 +129,14 @@ class MainPresenter : MainContract.Presenter {
                         mainView.updateDynamicLinkShort(shortLink)
                         Log.i(TAG, "dynamicLinkBuilder short FDL: $shortLink")
                         Log.i(TAG, "dynamicLinkBuilder preview FDL: $debugLink")
+
+                        if (appInvite){
+                            val intent = Intent(Intent.ACTION_SEND)
+                            intent.type = "text/plain"
+                            intent.putExtra(Intent.EXTRA_TEXT, shortLink)
+
+                            context.startActivity(Intent.createChooser(intent, "Share Link"))
+                        }
                     }
                 }.addOnFailureListener { exception: Exception ->
                     Log.e(TAG, "dynamicLinkBuilder Error: $exception")
@@ -149,7 +164,7 @@ class MainPresenter : MainContract.Presenter {
                 Crashlytics.log(Log.ERROR, TAG, "Clicked Crash")
                 Crashlytics.setString("KEY_USER", "Juan dela Cruz")
                 Crashlytics.setString("KEY_EMAIL", "juan.dela.cruz@email.com")
-                Crashlytics.setString("KEY_STRING", "Hello")
+                Crashlytics.setString("KEY_STRING", "Crashlytics 2.9.7")
                 Crashlytics.setBool("KEY_BOOL", true)
                 Crashlytics.setDouble("KEY_DOUBLE", 4.5)
                 Crashlytics.setFloat("KEY_FLOAT", 4.5F)
