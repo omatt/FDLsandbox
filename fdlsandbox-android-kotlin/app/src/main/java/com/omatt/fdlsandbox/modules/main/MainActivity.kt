@@ -12,6 +12,7 @@ import butterknife.ButterKnife
 import butterknife.OnCheckedChanged
 import butterknife.OnClick
 import com.crashlytics.android.Crashlytics
+import com.crashlytics.android.core.CrashlyticsCore
 import com.google.android.gms.appinvite.AppInviteInvitation
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.omatt.fdlsandbox.AppController
@@ -50,7 +51,10 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         setContentView(R.layout.layout_activity_main)
         ButterKnife.bind(this)
         AppController.component.inject(this)
-        Fabric.with(this, Crashlytics())
+        val crashlyticsCore = CrashlyticsCore.Builder()
+                .disabled(true)
+                .build()
+        Fabric.with(this, crashlyticsCore)
 
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
     }

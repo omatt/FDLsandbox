@@ -11,6 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:fullBackupContent="@xml/backup_descriptor">
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="fe1712db37e918421ce2e7b4d53f9de2864197c3"
+            />
+        <meta-data
+            android:name="firebase_crashlytics_collection_enabled"
+            android:value="false" />
         <activity android:name=".modules.main.MainActivity">
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.MAIN" />

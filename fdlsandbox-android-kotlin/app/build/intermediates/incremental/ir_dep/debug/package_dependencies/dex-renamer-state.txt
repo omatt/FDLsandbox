@@ -1,0 +1,4 @@
+#Wed Nov 28 09:24:20 PHT 2018
+base.0=/Users/omarmatthew/Downloads/dev/android/fdlsandbox/fdlsandbox-android-kotlin/app/build/intermediates/transforms/dexMerger/debug/10
+path.0=classes.dex
+renamed.0=classes.dex
