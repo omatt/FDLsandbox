@@ -2,6 +2,7 @@ package com.omatt.fdlsandbox
 
 import android.app.Application
 import android.util.Log
+import com.crashlytics.android.Crashlytics
 import com.crashlytics.android.core.CrashlyticsCore
 import com.omatt.fdlsandbox.components.AppComponent
 import com.omatt.fdlsandbox.components.AppModule
@@ -33,8 +34,8 @@ class AppController : Application() {
 
         component.inject(this)
 
-        val crashlyticsCore = CrashlyticsCore.Builder()
-                .disabled(true)
+        val crashlyticsCore = Crashlytics.Builder()
+                .disabled(false)
                 .build()
         Log.i(TAG, "Debug? ${BuildConfig.DEBUG}")
         Fabric.with(this, crashlyticsCore)

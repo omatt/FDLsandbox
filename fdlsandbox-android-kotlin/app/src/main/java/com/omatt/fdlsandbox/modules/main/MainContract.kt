@@ -20,6 +20,6 @@ interface MainContract {
         fun sendAppInvite(activity: Activity, resultCode : Int)
         fun processDeepLink(intent: Intent)
         fun buildDynamicLink(context: Context, buildDynamicLink: Boolean)
-        fun forceCrash(catchCrash: Boolean)
+        fun forceCrash(activity: Activity, catchCrash: Boolean)
     }
 }

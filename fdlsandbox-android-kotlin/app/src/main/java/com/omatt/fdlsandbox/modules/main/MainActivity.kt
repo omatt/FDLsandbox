@@ -54,6 +54,8 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         AppController.component.inject(this)
 
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
+
+//        Fabric.with(this, Crashlytics())
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -119,7 +121,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     @OnClick(R.id.btn_force_crash)
     fun onClickCrash() {
         Log.i(TAG, "Clicked Crash; catch? $catchCrash")
-        mainPresenter.forceCrash(catchCrash)
+        mainPresenter.forceCrash(this, catchCrash)
     }
 
     @OnCheckedChanged(R.id.switch_catch_crash)

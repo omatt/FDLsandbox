@@ -59,7 +59,7 @@
             <!-- [END deep_link_filter] -->
         </activity>
         <activity android:name=".modules.inappbrowser.InAppBrowserActivity" />
-        <!--<meta-data android:name="firebase_crashlytics_collection_enabled" android:value="true" />-->
+        <meta-data android:name="firebase_crashlytics_collection_enabled" android:value="false" />
     </application>
 
 </manifest>

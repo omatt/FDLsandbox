@@ -3,17 +3,14 @@ package com.omatt.fdlsandbox.modules.main
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.util.Log
 import android.widget.Toast
 import com.crashlytics.android.Crashlytics
-import com.google.firebase.dynamiclinks.DynamicLink
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks
 import com.google.firebase.dynamiclinks.PendingDynamicLinkData
 import com.google.firebase.dynamiclinks.ShortDynamicLink
 import com.omatt.fdlsandbox.AppController
 import com.omatt.fdlsandbox.R
-import com.omatt.fdlsandbox.firebase.AppInviteHelper
 import com.omatt.fdlsandbox.firebase.DynamicLinkHelper
 import java.lang.Exception
 
@@ -143,10 +140,10 @@ class MainPresenter : MainContract.Presenter {
                 }
     }
 
-    override fun forceCrash(catchCrash: Boolean) {
+    override fun forceCrash(activity: Activity, catchCrash: Boolean) {
         // Log that crash button was clicked. This version of Crash.log() will include the
         // message in the crash report as well as show the message in logcat.
-//        FirebaseCrash.logcat(Log.INFO, TAG, "Crash button clicked")
+        Log.i(TAG, "Crash button clicked, catch? $catchCrash")
 
         // If catchCrashCheckBox is checked catch the exception and report is using
         // Crash.report(). Otherwise throw the exception and let Firebase Crash automatically
@@ -159,7 +156,6 @@ class MainPresenter : MainContract.Presenter {
                 val exception = Exception("${ex.message} - ${ex.cause}")
 
                 // Crashlytics
-                Crashlytics.logException(exception)
 
                 Crashlytics.log(Log.ERROR, TAG, "Clicked Crash")
                 Crashlytics.setString("KEY_USER", "Juan dela Cruz")
@@ -173,9 +169,10 @@ class MainPresenter : MainContract.Presenter {
                 Crashlytics.setUserName("Juan dela Cruz")
                 Crashlytics.setUserEmail("juan.dela.cruz@email.com")
 
+                Crashlytics.logException(exception)
 //                Crashlytics.getInstance().crash()
             }
 
-        } else throw NullPointerException()
+        } else Crashlytics.getInstance().crash()
     }
 }

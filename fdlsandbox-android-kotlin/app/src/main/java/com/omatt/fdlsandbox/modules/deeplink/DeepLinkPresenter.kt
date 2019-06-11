@@ -23,7 +23,8 @@ class DeepLinkPresenter : DeepLinkContract.Presenter {
     }
 
     override fun processDeepLink(intent: Intent) {
-        FirebaseDynamicLinks.getInstance().getDynamicLink(intent).addOnSuccessListener({pendingDynamicLinkData: PendingDynamicLinkData? ->
+        FirebaseDynamicLinks.getInstance().getDynamicLink(intent).addOnSuccessListener {
+            pendingDynamicLinkData: PendingDynamicLinkData? ->
             if (pendingDynamicLinkData == null) {
                 Log.w(TAG, "No deep link found")
                 return@addOnSuccessListener
@@ -43,8 +44,8 @@ class DeepLinkPresenter : DeepLinkContract.Presenter {
             val invitationId: String = invite.invitationId
             Log.i(TAG, "Invitation ID: $invitationId")
             deepLinkView.updateInviteId(invitationId)
-        }).addOnFailureListener({exception: Exception ->
+        }.addOnFailureListener { exception: Exception ->
             Log.w(TAG, "processDeepLink error: $exception")
-        })
+        }
     }
 }
