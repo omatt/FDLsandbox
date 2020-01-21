@@ -9,10 +9,6 @@ apply plugin: 'com.google.firebase.appdistribution'
 android {
     signingConfigs {
         debug {
-        storeFile file('/usr/local/google/home/omarmatthew/Downloads/google_tvc_acn_reyes_omarmatthew.jks')
-            storePassword 'password123!'
-            keyPassword 'password123!'
-            keyAlias = 'release'
         }
         config {
         }
