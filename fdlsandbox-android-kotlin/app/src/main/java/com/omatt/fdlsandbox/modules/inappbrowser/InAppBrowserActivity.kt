@@ -1,7 +1,7 @@
 package com.omatt.fdlsandbox.modules.inappbrowser
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.webkit.WebViewClient
 import com.omatt.fdlsandbox.AppController
@@ -26,7 +26,7 @@ class InAppBrowserActivity : AppCompatActivity(), InAppBrowserContract.View {
         setContentView(R.layout.layout_activity_in_app_browser)
         AppController.component.inject(this)
 
-        dynamicLink = intent.extras.getString("KEY_FDL")
+        dynamicLink = intent.extras?.getString("KEY_FDL").toString()
 
         switch_override_webview.setOnCheckedChangeListener({ _, checked ->
             Log.i(TAG, "switch $checked")

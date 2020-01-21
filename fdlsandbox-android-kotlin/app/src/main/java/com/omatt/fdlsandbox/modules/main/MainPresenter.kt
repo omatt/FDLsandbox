@@ -91,12 +91,14 @@ class MainPresenter : MainContract.Presenter {
 //            Toast.makeText(AppController.instance, "Invitation ID: $invitationId", Toast.LENGTH_SHORT).show()
 
             // Multiple custom parameters
-            if (deepLink.getBooleanQueryParameter("userId", true))
-                Log.i(TAG, "userId: " + deepLink.getQueryParameter("userId"))
-            if (deepLink.getBooleanQueryParameter("setLng", true))
-                Log.i(TAG, "setLng: " + deepLink.getQueryParameter("setLng"))
-            if (deepLink.getBooleanQueryParameter("customId", true))
-                Log.i(TAG, "customId: " + deepLink.getQueryParameter("customId"))
+            if (deepLink != null) {
+                if (deepLink.getBooleanQueryParameter("userId", true))
+                    Log.i(TAG, "userId: " + deepLink.getQueryParameter("userId"))
+                if (deepLink.getBooleanQueryParameter("setLng", true))
+                    Log.i(TAG, "setLng: " + deepLink.getQueryParameter("setLng"))
+                if (deepLink.getBooleanQueryParameter("customId", true))
+                    Log.i(TAG, "customId: " + deepLink.getQueryParameter("customId"))
+            }
         }.addOnFailureListener { exception: Exception ->
             Toast.makeText(AppController.instance, "Dynamic Link failure: $exception", Toast.LENGTH_SHORT).show()
         }

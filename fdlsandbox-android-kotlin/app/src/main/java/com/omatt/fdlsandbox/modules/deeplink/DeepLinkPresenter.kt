@@ -36,8 +36,10 @@ class DeepLinkPresenter : DeepLinkContract.Presenter {
             deepLinkView.updateDeepLink(deepLink.toString())
 
             // Fetch referrer id
-            if (deepLink.getBooleanQueryParameter("customId", false))
-                deepLinkView.updateReferrerId(deepLink.getQueryParameter("customId"))
+            if (deepLink != null) {
+                if (deepLink.getBooleanQueryParameter("customId", false))
+                    deepLink.getQueryParameter("customId")?.let { deepLinkView.updateReferrerId(it) }
+            }
 
             // Get inviteId
             val invite = FirebaseAppInvite.getInvitation(pendingDynamicLinkData)
