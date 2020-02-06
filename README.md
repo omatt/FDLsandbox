@@ -3,7 +3,7 @@ Simple sandbox implementing features of Firebase Dynamic Links and App Invites
 
 Now ported to Kotlin :wink:
 
-![alt text](https://firebase.google.com/_static/0fb3bb994f/images/firebase/lockup.png)
+<img src="https://firebase.google.com/images/brand-guidelines/logo-built_white.png" height="100"/>
 
 ## Dependecies used
 * firebase-core ([Analytics](https://firebase.google.com/docs/analytics/android/start/))
