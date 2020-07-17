@@ -16,12 +16,6 @@ class MainAppState extends State<MainAppPage> {
     this.initDynamicLinks();
   }
 
-  void incrementClick() {
-    setState(() {
-      clickCount++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     DynamicLinksHelper FDLHelper = DynamicLinksHelper();
@@ -53,7 +47,6 @@ class MainAppState extends State<MainAppPage> {
           ),
           RaisedButton(
             onPressed: () {
-              incrementClick();
               debugPrint('$debugClass: WebView clicked!');
             },
             child: Text('WebView'),
@@ -107,7 +100,7 @@ class MainAppState extends State<MainAppPage> {
       print('$debugClass: deep link null? ${deepLink == null}');
 
       if (deepLink != null) {
-        Navigator.pushNamed(context, deepLink.path);
+//        Navigator.pushNamed(context, deepLink.path);
       }
     }, onError: (OnLinkErrorException e) async {
       print('$debugClass: onLinkError ${e.message}');
