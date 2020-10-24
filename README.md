@@ -1,7 +1,7 @@
 # FDLsandbox
 Simple sandbox implementing features of Firebase Dynamic Links and App Invites
 
-Now ported to Kotlin :wink:
+Now ported to Kotlin and Flutter :wink:
 
 <img src="https://firebase.google.com/images/brand-guidelines/logo-built_white.png" height="100"/>
 
