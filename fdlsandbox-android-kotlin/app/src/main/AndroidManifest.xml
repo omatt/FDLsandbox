@@ -58,7 +58,7 @@
             </intent-filter>
             <!-- [END deep_link_filter] -->
         </activity>
-        <!--<activity android:name=".modules.inappbrowser.InAppBrowserActivity" />-->
+        <activity android:name=".modules.inappbrowser.InAppBrowserActivity" />
     </application>
 
 </manifest>

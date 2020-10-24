@@ -15,6 +15,7 @@ class InAppBrowserPresenter : InAppBrowserContract.Presenter {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
+    // overrideWebView - if TRUE, force FDL to load in WebView
     override fun initWebView(overrideWebView: Boolean, dynamicLink: String) {
         if (overrideWebView) inAppBrowserView.setWebViewClient(CustomWebViewClient())
         else inAppBrowserView.setWebViewClient(null)

@@ -72,8 +72,8 @@ class MainPresenter : MainContract.Presenter {
      * @param intent Intent
      */
     override fun processDeepLink(intent: Intent) {
-        FirebaseDynamicLinks.getInstance().getDynamicLink(intent).addOnSuccessListener { pendingDynamicLinkData: PendingDynamicLinkData? ->
-            Log.i(TAG, "Pending Dynamic Link data: $intent.get")
+        FirebaseDynamicLinks.getInstance().getDynamicLink(intent).addOnSuccessListener {pendingDynamicLinkData: PendingDynamicLinkData? ->
+            Log.i(TAG, "Pending Dynamic Link data: $intent")
             if (pendingDynamicLinkData == null) {
                 Log.w(TAG, "No deep link found")
                 return@addOnSuccessListener
@@ -129,7 +129,7 @@ class MainPresenter : MainContract.Presenter {
                         Log.i(TAG, "dynamicLinkBuilder short FDL: $shortLink")
                         Log.i(TAG, "dynamicLinkBuilder preview FDL: $debugLink")
 
-                        if (appInvite){
+                        if (appInvite) {
                             val intent = Intent(Intent.ACTION_SEND)
                             intent.type = "text/plain"
                             intent.putExtra(Intent.EXTRA_TEXT, shortLink)
