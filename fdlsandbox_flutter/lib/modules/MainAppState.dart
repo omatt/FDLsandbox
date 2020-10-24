@@ -1,10 +1,11 @@
 import 'package:fdlsandbox_flutter/firebase/DynamicLinksHelper.dart';
+import 'package:fdlsandbox_flutter/modules/InAppBrowser.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
 import 'MainAppPage.dart';
 
 class MainAppState extends State<MainAppPage> {
-  final String debugClass = 'DynamicLinksHelper';
+  final debugClass = 'MainAppState';
   int clickCount = 0;
   String longLink = 'Long FDL will appear here',
       shortLink = 'Short FDL will appear here';
@@ -18,41 +19,58 @@ class MainAppState extends State<MainAppPage> {
 
   @override
   Widget build(BuildContext context) {
-    DynamicLinksHelper FDLHelper = DynamicLinksHelper();
+    var dynamicLinkHelper = DynamicLinksHelper();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
         title: Text('FDL Sandbox'),
       ),
       backgroundColor: Colors.white,
-      body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          RaisedButton(
-            onPressed: () {
-              generateLongLink(FDLHelper.dynamicLinkParameters());
-              debugPrint('Generate FDL clicked!');
-            },
-            child: Text('Generate FDL'),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: SelectableText(longLink),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: SelectableText(shortLink),
-          ),
-          RaisedButton(
-            onPressed: () {
-              debugPrint('$debugClass: WebView clicked!');
-            },
-            child: Text('WebView'),
-          )
-        ],
-      )),
+      body: Builder(
+        builder: (context) => Center(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            RaisedButton(
+              onPressed: () {
+                generateLongLink(dynamicLinkHelper.dynamicLinkParameters());
+                debugPrint('Generate FDL clicked!');
+              },
+              child: Text('Generate FDL'),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: SelectableText(longLink),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: SelectableText(shortLink),
+            ),
+            RaisedButton(
+              onPressed: () {
+                debugPrint('$debugClass: WebView clicked!');
+                shortLink.contains(RegExp('^https://.*\$'))
+                    ? Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => InAppBrowser(),
+                          // Pass the arguments as part of the RouteSettings. The
+                          // DetailScreen reads the arguments from these settings.
+                          settings: RouteSettings(
+                            arguments: shortLink,
+                          ),
+                        ),
+                      )
+                    : Scaffold.of(context).showSnackBar(SnackBar(
+                        content: Text("Empty short FDL"),
+                      ));
+              },
+              child: Text('WebView'),
+            ),
+          ],
+        )),
+      ),
     );
   }
 
