@@ -1,5 +1,5 @@
 name: fdlsandbox_flutter
-description: A new Flutter application.
+description: Flutter port of FDL Sandbox.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -25,6 +25,7 @@ dependencies:
     sdk: flutter
   firebase_core: ^0.5.0
   firebase_dynamic_links: ^0.6.0+2
+  webview_flutter: ^1.0.5
 
 
   # The following adds the Cupertino Icons font to your application.
