@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +11,66 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="fdlsandbox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wh-oE-H1a">
+                                <rect key="frame" x="137" y="199" width="140" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Generate FDL"/>
+                                <connections>
+                                    <action selector="generateFDL:" destination="BYZ-38-t0r" eventType="touchUpInside" id="erv-lX-h9S"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Short FDL will appear here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pLX-0e-Vf0">
+                                <rect key="frame" x="106.5" y="438" width="201" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fH-ge-ugt">
+                                <rect key="frame" x="169.5" y="578" width="75" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="WebView"/>
+                                <connections>
+                                    <action selector="openWebView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r8d-Ih-vGn"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Long FDL will appear here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHU-vS-WQR">
+                                <rect key="frame" x="57" y="350" width="300" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="nLs-5V-Uhx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="2wh-oE-H1a" firstAttribute="centerX" secondItem="pLX-0e-Vf0" secondAttribute="centerX" id="0YV-oH-CTA"/>
+                            <constraint firstItem="3fH-ge-ugt" firstAttribute="top" secondItem="pLX-0e-Vf0" secondAttribute="bottom" constant="120" id="5hg-mW-6eL"/>
+                            <constraint firstItem="3fH-ge-ugt" firstAttribute="centerX" secondItem="pLX-0e-Vf0" secondAttribute="centerX" id="Roh-Kl-gha"/>
+                            <constraint firstItem="pLX-0e-Vf0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XZy-OC-a7L"/>
+                            <constraint firstItem="pLX-0e-Vf0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="aAl-dl-gmM"/>
+                            <constraint firstItem="fHU-vS-WQR" firstAttribute="centerX" secondItem="pLX-0e-Vf0" secondAttribute="centerX" id="aBj-il-rtc"/>
+                            <constraint firstItem="2wh-oE-H1a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="137" id="fNT-7z-0l7"/>
+                            <constraint firstItem="fHU-vS-WQR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="57" id="qqN-JX-8KG"/>
+                            <constraint firstItem="pLX-0e-Vf0" firstAttribute="top" secondItem="fHU-vS-WQR" secondAttribute="bottom" constant="24" id="rBM-xC-BAW"/>
+                            <constraint firstItem="2wh-oE-H1a" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="155" id="uf7-uz-TPQ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="longFDL" destination="fHU-vS-WQR" id="Lfx-Bb-8eG"/>
+                        <outlet property="shortFDL" destination="pLX-0e-Vf0" id="Ugw-7Q-FPJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="85.714285714285708"/>
         </scene>
     </scenes>
 </document>

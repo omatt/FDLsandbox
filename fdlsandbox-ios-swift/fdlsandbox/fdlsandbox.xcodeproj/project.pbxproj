@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4447430B254AFF9000FA8FF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4447430A254AFF8F00FA8FF0 /* GoogleService-Info.plist */; };
 		447553A321AE3BAF009F1968 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447553A221AE3BAF009F1968 /* AppDelegate.swift */; };
 		447553A521AE3BAF009F1968 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447553A421AE3BAF009F1968 /* ViewController.swift */; };
 		447553A821AE3BAF009F1968 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447553A621AE3BAF009F1968 /* Main.storyboard */; };
@@ -14,6 +15,9 @@
 		447553AD21AE3BB1009F1968 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447553AB21AE3BB1009F1968 /* LaunchScreen.storyboard */; };
 		447553B821AE3BB2009F1968 /* fdlsandboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447553B721AE3BB2009F1968 /* fdlsandboxTests.swift */; };
 		447553C321AE3BB2009F1968 /* fdlsandboxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447553C221AE3BB2009F1968 /* fdlsandboxUITests.swift */; };
+		64D25AFB84983E2179C89CBF /* Pods_fdlsandbox_fdlsandboxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29AECB9A823C93703B5F449D /* Pods_fdlsandbox_fdlsandboxUITests.framework */; };
+		864F1DEA0B3B1927E7D7D4BB /* Pods_fdlsandboxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA61C63F35322EEDB544484C /* Pods_fdlsandboxTests.framework */; };
+		901EFE01036C01E4963E2533 /* Pods_fdlsandbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C2A856908886252A76DE4F /* Pods_fdlsandbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A42792FE2D8FF78DCA110B6 /* Pods-fdlsandbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fdlsandbox.debug.xcconfig"; path = "Target Support Files/Pods-fdlsandbox/Pods-fdlsandbox.debug.xcconfig"; sourceTree = "<group>"; };
+		120612CBA587F37743B56695 /* Pods-fdlsandbox-fdlsandboxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fdlsandbox-fdlsandboxUITests.release.xcconfig"; path = "Target Support Files/Pods-fdlsandbox-fdlsandboxUITests/Pods-fdlsandbox-fdlsandboxUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2407F2F494BAA2A3253CCBF9 /* Pods-fdlsandboxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fdlsandboxTests.debug.xcconfig"; path = "Target Support Files/Pods-fdlsandboxTests/Pods-fdlsandboxTests.debug.xcconfig"; sourceTree = "<group>"; };
+		29AECB9A823C93703B5F449D /* Pods_fdlsandbox_fdlsandboxUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fdlsandbox_fdlsandboxUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		384BD07BF01DC11D6BB3037D /* Pods-fdlsandbox-fdlsandboxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fdlsandbox-fdlsandboxUITests.debug.xcconfig"; path = "Target Support Files/Pods-fdlsandbox-fdlsandboxUITests/Pods-fdlsandbox-fdlsandboxUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4447430A254AFF8F00FA8FF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		44474327254B128100FA8FF0 /* fdlsandbox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = fdlsandbox.entitlements; sourceTree = "<group>"; };
 		4475539F21AE3BAF009F1968 /* fdlsandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fdlsandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		447553A221AE3BAF009F1968 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		447553A421AE3BAF009F1968 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +58,10 @@
 		447553BE21AE3BB2009F1968 /* fdlsandboxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fdlsandboxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		447553C221AE3BB2009F1968 /* fdlsandboxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fdlsandboxUITests.swift; sourceTree = "<group>"; };
 		447553C421AE3BB2009F1968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BFDCBD1D1B68E72CE512908 /* Pods-fdlsandbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fdlsandbox.release.xcconfig"; path = "Target Support Files/Pods-fdlsandbox/Pods-fdlsandbox.release.xcconfig"; sourceTree = "<group>"; };
+		CA61C63F35322EEDB544484C /* Pods_fdlsandboxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fdlsandboxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6904D57F845B73883417641 /* Pods-fdlsandboxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fdlsandboxTests.release.xcconfig"; path = "Target Support Files/Pods-fdlsandboxTests/Pods-fdlsandboxTests.release.xcconfig"; sourceTree = "<group>"; };
+		E8C2A856908886252A76DE4F /* Pods_fdlsandbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fdlsandbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				901EFE01036C01E4963E2533 /* Pods_fdlsandbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				864F1DEA0B3B1927E7D7D4BB /* Pods_fdlsandboxTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64D25AFB84983E2179C89CBF /* Pods_fdlsandbox_fdlsandboxUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,10 +95,13 @@
 		4475539621AE3BAF009F1968 = {
 			isa = PBXGroup;
 			children = (
+				4447430A254AFF8F00FA8FF0 /* GoogleService-Info.plist */,
 				447553A121AE3BAF009F1968 /* fdlsandbox */,
 				447553B621AE3BB2009F1968 /* fdlsandboxTests */,
 				447553C121AE3BB2009F1968 /* fdlsandboxUITests */,
 				447553A021AE3BAF009F1968 /* Products */,
+				FAF0821FE48060807638BFE1 /* Pods */,
+				B316930420B79FBF330DCFEC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +118,7 @@
 		447553A121AE3BAF009F1968 /* fdlsandbox */ = {
 			isa = PBXGroup;
 			children = (
+				44474327254B128100FA8FF0 /* fdlsandbox.entitlements */,
 				447553A221AE3BAF009F1968 /* AppDelegate.swift */,
 				447553A421AE3BAF009F1968 /* ViewController.swift */,
 				447553A621AE3BAF009F1968 /* Main.storyboard */,
@@ -125,6 +147,29 @@
 			path = fdlsandboxUITests;
 			sourceTree = "<group>";
 		};
+		B316930420B79FBF330DCFEC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E8C2A856908886252A76DE4F /* Pods_fdlsandbox.framework */,
+				29AECB9A823C93703B5F449D /* Pods_fdlsandbox_fdlsandboxUITests.framework */,
+				CA61C63F35322EEDB544484C /* Pods_fdlsandboxTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FAF0821FE48060807638BFE1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0A42792FE2D8FF78DCA110B6 /* Pods-fdlsandbox.debug.xcconfig */,
+				4BFDCBD1D1B68E72CE512908 /* Pods-fdlsandbox.release.xcconfig */,
+				384BD07BF01DC11D6BB3037D /* Pods-fdlsandbox-fdlsandboxUITests.debug.xcconfig */,
+				120612CBA587F37743B56695 /* Pods-fdlsandbox-fdlsandboxUITests.release.xcconfig */,
+				2407F2F494BAA2A3253CCBF9 /* Pods-fdlsandboxTests.debug.xcconfig */,
+				E6904D57F845B73883417641 /* Pods-fdlsandboxTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +177,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 447553C721AE3BB2009F1968 /* Build configuration list for PBXNativeTarget "fdlsandbox" */;
 			buildPhases = (
+				7D2F4F036215D7FF8B5FDC26 /* [CP] Check Pods Manifest.lock */,
 				4475539B21AE3BAF009F1968 /* Sources */,
 				4475539C21AE3BAF009F1968 /* Frameworks */,
 				4475539D21AE3BAF009F1968 /* Resources */,
+				7E34430CE2FD06E29BB20817 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +196,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 447553CA21AE3BB2009F1968 /* Build configuration list for PBXNativeTarget "fdlsandboxTests" */;
 			buildPhases = (
+				D4785C7F4E8AB83D17DA4956 /* [CP] Check Pods Manifest.lock */,
 				447553AF21AE3BB2009F1968 /* Sources */,
 				447553B021AE3BB2009F1968 /* Frameworks */,
 				447553B121AE3BB2009F1968 /* Resources */,
@@ -167,9 +215,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 447553CD21AE3BB2009F1968 /* Build configuration list for PBXNativeTarget "fdlsandboxUITests" */;
 			buildPhases = (
+				F2E4B63341F4756C4FD15F56 /* [CP] Check Pods Manifest.lock */,
 				447553BA21AE3BB2009F1968 /* Sources */,
 				447553BB21AE3BB2009F1968 /* Frameworks */,
 				447553BC21AE3BB2009F1968 /* Resources */,
+				E9043AE3613EC3A2FAC4D747 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -193,13 +243,16 @@
 				TargetAttributes = {
 					4475539E21AE3BAF009F1968 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1200;
 					};
 					447553B221AE3BB2009F1968 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1200;
 						TestTargetID = 4475539E21AE3BAF009F1968;
 					};
 					447553BD21AE3BB2009F1968 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1200;
 						TestTargetID = 4475539E21AE3BAF009F1968;
 					};
 				};
@@ -230,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				447553AD21AE3BB1009F1968 /* LaunchScreen.storyboard in Resources */,
+				4447430B254AFF9000FA8FF0 /* GoogleService-Info.plist in Resources */,
 				447553AA21AE3BB1009F1968 /* Assets.xcassets in Resources */,
 				447553A821AE3BAF009F1968 /* Main.storyboard in Resources */,
 			);
@@ -250,6 +304,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7D2F4F036215D7FF8B5FDC26 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-fdlsandbox-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E34430CE2FD06E29BB20817 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fdlsandbox/Pods-fdlsandbox-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fdlsandbox/Pods-fdlsandbox-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fdlsandbox/Pods-fdlsandbox-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4785C7F4E8AB83D17DA4956 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-fdlsandboxTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9043AE3613EC3A2FAC4D747 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fdlsandbox-fdlsandboxUITests/Pods-fdlsandbox-fdlsandboxUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fdlsandbox-fdlsandboxUITests/Pods-fdlsandbox-fdlsandboxUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fdlsandbox-fdlsandboxUITests/Pods-fdlsandbox-fdlsandboxUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2E4B63341F4756C4FD15F56 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-fdlsandbox-fdlsandboxUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4475539B21AE3BAF009F1968 /* Sources */ = {
@@ -430,9 +587,13 @@
 		};
 		447553C821AE3BB2009F1968 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A42792FE2D8FF78DCA110B6 /* Pods-fdlsandbox.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = fdlsandbox/fdlsandbox.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = fdlsandbox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -440,16 +601,21 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.omatt.fdlsandbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		447553C921AE3BB2009F1968 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BFDCBD1D1B68E72CE512908 /* Pods-fdlsandbox.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = fdlsandbox/fdlsandbox.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = fdlsandbox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -457,13 +623,15 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.omatt.fdlsandbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 		447553CB21AE3BB2009F1968 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2407F2F494BAA2A3253CCBF9 /* Pods-fdlsandboxTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -476,7 +644,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.omatt.fdlsandboxTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fdlsandbox.app/fdlsandbox";
 			};
@@ -484,6 +652,7 @@
 		};
 		447553CC21AE3BB2009F1968 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6904D57F845B73883417641 /* Pods-fdlsandboxTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -496,7 +665,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.omatt.fdlsandboxTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fdlsandbox.app/fdlsandbox";
 			};
@@ -504,6 +673,7 @@
 		};
 		447553CE21AE3BB2009F1968 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 384BD07BF01DC11D6BB3037D /* Pods-fdlsandbox-fdlsandboxUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -515,7 +685,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.omatt.fdlsandboxUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = fdlsandbox;
 			};
@@ -523,6 +693,7 @@
 		};
 		447553CF21AE3BB2009F1968 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 120612CBA587F37743B56695 /* Pods-fdlsandbox-fdlsandboxUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -534,7 +705,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.omatt.fdlsandboxUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = fdlsandbox;
 			};
